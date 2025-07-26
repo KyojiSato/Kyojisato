@@ -1,0 +1,201 @@
+:root {
+  --main-bg: #FEFBF5;
+  --main-color: #7A5C3E;
+  --accent: #D9A066;
+  --highlight: #A3B18A;
+  --base: #F0E7D8;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: var(--main-bg);
+  color: var(--main-color);
+  max-width: 1366px;
+  margin: 0 auto;
+}
+
+header {
+  background-color: var(--base);
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--main-color);
+}
+
+.mobile-nav {
+  display: none;
+  background-color: var(--base);
+  padding: 1rem;
+}
+
+.mobile-nav.active {
+  display: block;
+}
+
+#hero {
+  position: relative;
+  background-image: url('../images/hiro1-640.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+#hero h2, #hero p {
+  position: relative;
+  z-index: 1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.content-block {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.menu-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.menu-images img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.form-wrapper {
+  background-color: #fff8f0;
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 400px;
+  margin: 1rem auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+input, textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+footer {
+  background-color: var(--base);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-right img {
+  width: 32px;
+  height: 32px;
+  margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+  .pc-nav {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+}
+/* メニューアイコンの「X」表示切替 */
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--main-color);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* メニューが開いたときに「X」アイコンに変化 */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+@media (max-width: 768px) {
+  .pc-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* 画像を1列に */
+  .menu-images {
+    grid-template-columns: 1fr;
+  }
+
+  /* ハンバーガー → X の変化 */
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
