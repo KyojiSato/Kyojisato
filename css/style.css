@@ -6,7 +6,14 @@
   --base: #F0E7D8;
 }
 
-
+body {
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: var(--main-bg);
+  color: var(--main-color);
+  max-width: 1366px;
+  margin: 0 auto;
+}
 
 
 
@@ -135,16 +142,8 @@ footer {
   margin-left: 8px;
 }
 
-@media (max-width: 768px) {
-  .pc-nav {
-    display: none;
-  }
-  .menu-toggle {
-    display: flex;
-  }
-}
 
-/* ヘッダー固定 */
+/* ヘッダーを固定にする */
 header {
   position: fixed;
   top: 0;
@@ -156,7 +155,7 @@ header {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* ヘッダー内最大幅1366px中央寄せ */
+/* 中央寄せ最大幅のラッパー（必要ならHTMLに <div class="header-inner"> を追加） */
 .header-inner {
   max-width: 1366px;
   margin: 0 auto;
@@ -166,10 +165,30 @@ header {
   align-items: center;
 }
 
-/* 本文がヘッダーと被らないように */
+/* 本文がヘッダーと重ならないように */
 body {
-  padding-top: 70px;
-  padding-bottom: 80px; /* footerが非固定でも余裕を見る */
+  padding-top: 70px; /* ヘッダー高さ */
+  padding-bottom: 80px; /* フッターの高さに応じて調整 */
   max-width: 1366px;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .pc-nav {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+}
+@media (min-width: 769px) {
+  #hero {
+    height: 80vh;
+    min-height: 500px;
+    max-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1rem;
+  }
 }
