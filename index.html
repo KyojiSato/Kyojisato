@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>こだわりのパン屋</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">こだわりのパン屋</div>
+
+      <nav class="pc-nav">
+        <ul class="nav-list">
+          <li><a href="#">ホーム</a></li>
+          <li><a href="#menu">メニュー</a></li>
+          <li><a href="#contact">アクセス</a></li>
+          <li><a href="#about">私たちについて</a></li>
+        </ul>
+      </nav>
+
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul class="nav-list">
+      <li><a href="#">ホーム</a></li>
+      <li><a href="#menu">メニュー</a></li>
+      <li><a href="#contact">アクセス</a></li>
+      <li><a href="#about">私たちについて</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <h2>ふんわり、やさしいパンの香り</h2>
+    <p>あざみ野駅から徒歩5分の、街のパン屋さん</p>
+  </section>
+
+  <section class="content-block" id="about">
+    <h2>私たちについて</h2>
+    <p>地元の素材を活かし、一つひとつ丁寧に焼き上げています。</p>
+  </section>
+
+  <section class="content-block" id="menu">
+    <h2>おすすめのパン</h2>
+    <div class="menu-images">
+      <img src="images/menu1_640.jpg" alt="イチジクのパン">
+      <img src="images/menu2_640.jpg" alt="クロワッサン">
+      <img src="images/menu3-640.jpg" alt="いろいろなパン">
+      <img src="images/menu4_640.jpg" alt="食パンスライス">
+    </div>
+  </section>
+
+  <section id="access" class="content-block">
+    <h2>アクセス</h2>
+    <p>〒225-0011 神奈川県横浜市青葉区あざみ野1丁目</p>
+    <p>田園都市線 あざみ野駅より徒歩5分</p>
+  </section>
+
+  <section id="contact" class="content-block">
+    <h2>お問い合わせ</h2>
+    <p>ご予約やご相談など、お気軽にお問い合わせください。</p>
+    <div class="form-wrapper">
+      <form action="#" method="post">
+        <label for="name">お名前</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">メールアドレス</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">メッセージ</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">送信</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-center">
+      &copy; 2025 こだわりのパン屋 All Rights Reserved.
+    </div>
+    <div class="footer-right">
+      <a href="https://www.instagram.com" target="_blank" rel="noopener">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="32"
+          height="32">
+      </a>
+      <a href="https://x.com" target="_blank" rel="noopener">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="X" width="32" height="32">
+      </a>
+      <a href="https://facebook.com" target="_blank" rel="noopener">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="32"
+          height="32">
+      </a>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
