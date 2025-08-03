@@ -7,7 +7,6 @@
 }
 
 body {
-  margin: 0;
   font-family: 'Noto Sans JP', sans-serif;
   background-color: var(--main-bg);
   color: var(--main-color);
@@ -15,11 +14,31 @@ body {
   margin: 0 auto;
 }
 
-
-
 .logo {
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+/* 中央寄せ最大幅のラッパー（必要ならHTMLに <div class="header-inner"> を追加） */
+.header-inner {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ヘッダーを固定にする */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--base);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .nav-list {
@@ -132,46 +151,15 @@ footer {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
 }
 
 .footer-right img {
   width: 16px;
   height: 16px;
-  margin-left: 8px;
+  margin-left: 16px;
 }
 
 
-/* ヘッダーを固定にする */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: var(--base);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* 中央寄せ最大幅のラッパー（必要ならHTMLに <div class="header-inner"> を追加） */
-.header-inner {
-  max-width: 1366px;
-  margin: 0 auto;
-  padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* 本文がヘッダーと重ならないように */
-body {
-  padding-top: 70px; /* ヘッダー高さ */
-  padding-bottom: 80px; /* フッターの高さに応じて調整 */
-  max-width: 1366px;
-  margin: 0 auto;
-}
 
 @media (max-width: 768px) {
   .pc-nav {
