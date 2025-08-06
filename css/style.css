@@ -281,4 +281,26 @@ footer {
 .calendar td.sunday {
   color: red;
 }
+.news-list {
+  list-style: none;
+  padding-left: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.news-list li {
+  margin-bottom: 1rem;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.news-list time {
+  display: inline-block;
+  margin-right: 1em;
+  font-weight: bold;
+  color: var(--main-color);
+  font-size: 0.95rem;
+}
 
