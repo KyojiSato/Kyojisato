@@ -121,6 +121,63 @@ header {
   object-fit: cover;
   border-radius: 8px;
 }
+.sidebar section {
+  margin-bottom: 2rem;
+}
+
+table.calendar {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.calendar th,
+table.calendar td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  height: 40px;
+  text-align: center;
+}
+
+.calendar td.closed {
+  background-color: #f4f4f4;
+  color: #aaa;
+}
+.calendar td.open {
+  background-color: #fff8e1;
+  font-weight: bold;
+}
+.calendar-switcher {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.calendar-switcher button {
+  padding: 0.4em 1em;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  cursor: pointer;
+}
+.calendar-switcher button:hover {
+  background: #eaeaea;
+}
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+}
+.calendar th, .calendar td {
+  border: 1px solid #ccc;
+  padding: 0.4em;
+  text-align: center;
+  height: 40px;
+}
+.calendar td.closed {
+  background: #f4f4f4;
+  color: #aaa;
+}
+.calendar td.open {
+  background: #fff8e1;
+  font-weight: bold;
+}
 
 .form-wrapper {
   background-color: #fff8f0;
@@ -169,7 +226,28 @@ footer {
     display: flex;
   }
 }
+/* ================================
+   📐 PCレイアウト main / sidebar
+   ================================ */
 @media (min-width: 769px) {
+  .layout-wrapper {
+    display: flex;
+    gap: 2rem;
+    max-width: 1366px;
+    margin: 0 auto;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+
+  .main-content {
+    flex: 3;
+    min-width: 0; /* flexアイテムの幅制御 */
+  }
+
+  .sidebar {
+    flex: 1;
+    min-width: 280px;
+  }
   #hero {
     height: 80vh;
     min-height: 500px;

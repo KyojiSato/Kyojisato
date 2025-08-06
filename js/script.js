@@ -7,3 +7,13 @@ document.addEventListener('DOMContentLoaded', function () {
     toggle.classList.toggle('active'); // ←これを追加
   });
 });
+
+  document.querySelectorAll('.calendar-switcher button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.month;
+    document.querySelectorAll('.calendar-month').forEach(div => {
+      div.style.display = 'none';
+    });
+    document.getElementById('calendar-' + target).style.display = 'block';
+  });
+});

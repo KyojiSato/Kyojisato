@@ -2,10 +2,10 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>こだわりのパン屋</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 </head>
 
@@ -13,7 +13,6 @@
   <header>
     <div class="header-inner">
       <div class="logo">こだわりのパン屋</div>
-
       <nav class="pc-nav">
         <ul class="nav-list">
           <li><a href="#">ホーム</a></li>
@@ -22,11 +21,8 @@
           <li><a href="#contact">アクセス</a></li>
         </ul>
       </nav>
-
       <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </div>
     </div>
   </header>
@@ -40,82 +36,194 @@
     </ul>
   </nav>
 
-  <section id="hero">
-    <h2>ふんわり、やさしいパンの香り</h2>
-    <p>あざみ野駅から徒歩5分の、街のパン屋さん</p>
-  </section>
+  <div class="layout-wrapper">
+    <main class="main-content">
+      <section id="hero">
+        <h2>ふんわり、やさしいパンの香り</h2>
+        <p>あざみ野駅から徒歩5分の、街のパン屋さん</p>
+      </section>
 
-  <section class="content-block" id="about">
-    <h2>私たちについて</h2>
-    <p>地元の素材を活かし、一つひとつ丁寧に焼き上げています。</p>
-  </section>
+      <section class="content-block" id="about">
+        <h2>私たちについて</h2>
+        <p>地元の素材を活かし、一つひとつ丁寧に焼き上げています。</p>
+      </section>
 
-  <section class="content-block" id="menu">
-    <h2>おすすめのパン</h2>
-    <div class="menu-images">
-      <img src="images/menu1_640.jpg" alt="イチジクのパン">
-      <img src="images/menu2_640.jpg" alt="クロワッサン">
-      <img src="images/menu3-640.jpg" alt="いろいろなパン">
-      <img src="images/menu4_640.jpg" alt="食パンスライス">
-    </div>
-  </section>
+      <section class="content-block" id="menu">
+        <h2>おすすめのパン</h2>
+        <div class="menu-images">
+          <img src="images/menu1_640.jpg" alt="イチジクのパン" />
+          <img src="images/menu2_640.jpg" alt="クロワッサン" />
+          <img src="images/menu3-640.jpg" alt="いろいろなパン" />
+          <img src="images/menu4_640.jpg" alt="食パンスライス" />
+        </div>
+      </section>
+    </main>
 
-  <section id="calendar" class="content-block">
-    <h2>営業日カレンダー</h2>
-    <iframe
-      src="https://calendar.google.com/calendar/embed?src=d86966700e45721730daf0a33a9b5fded8b4ce81ff108357600be161e3b3f57d%40group.calendar.google.com&ctz=Asia%2FTokyo"
-      style="border:0;" width="100%" height="600" frameborder="0" scrolling="no">
-    </iframe>
-  </section>
+    <aside class="sidebar">
+      <section id="calendar" class="content-block">
+        <h2>営業カレンダー</h2>
+        <div class="calendar-switcher">
+          <button data-month="aug">8月</button>
+          <button data-month="sep">9月</button>
+        </div>
 
-  <section id="map" class="content-block">
-    <h2>店舗マップ</h2>
-    <p>〒225-0011 八王子市南大沢2-27 フレスコ南大沢</p>
-    <p>京王相模原線 南大沢駅徒歩5分</p>
-    <p>042-670-8122</p>
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6487.28709848122!2d139.3771163296214!3d35.61185832829425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018e2b0a23fffff%3A0x7a917e69bc1b5252!2z44OV44Os44K544Kz5Y2X5aSn5rKi!5e0!3m2!1sja!2sjp!4v1754098462521!5m2!1sja!2sjp"
-      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </section>
+        <div class="calendar-month" id="calendar-aug">
+          <table class="calendar">
+            <thead>
+              <tr>
+                <th>日</th>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+                <th>土</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="closed">28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+                <td>1</td>
+                <td>2</td>
+                <td class="open">3</td>
+              </tr>
+              <tr>
+                <td class="open">4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td class="open">10</td>
+              </tr>
+              <tr>
+                <td class="closed">11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td class="closed">17</td>
+              </tr>
+              <tr>
+                <td class="open">18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td class="open">24</td>
+              </tr>
+              <tr>
+                <td class="closed">25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td class="closed">31</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
+        <div class="calendar-month" id="calendar-sep" style="display:none;">
+          <table class="calendar">
+            <thead>
+              <tr>
+                <th>日</th>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+                <th>土</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="closed">1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td class="open">7</td>
+              </tr>
+              <tr>
+                <td class="open">8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td class="open">14</td>
+              </tr>
+              <tr>
+                <td class="closed">15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td class="closed">21</td>
+              </tr>
+              <tr>
+                <td class="open">22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td class="open">28</td>
+              </tr>
+              <tr>
+                <td class="closed">29</td>
+                <td>30</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-  <section id="contact" class="content-block">
-    <h2>お問い合わせ</h2>
-    <p>お取り置きやご相談など、お気軽にお問い合わせください。</p>
-    <div class="form-wrapper">
-      <form action="#" method="post">
-        <label for="name">お名前</label>
-        <input type="text" id="name" name="name" required>
+      <section id="map" class="content-block">
+        <h2>店舗マップ</h2>
+        <p>〒225-0011 神奈川県横浜市青葉区あざみ野1丁目</p>
+        <p>田園都市線 あざみ野駅より徒歩5分</p>
+        <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="300" style="border: 0"
+          allowfullscreen="" loading="lazy"></iframe>
+      </section>
 
-        <label for="email">メールアドレス</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">メッセージ</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit">送信</button>
-      </form>
-    </div>
-  </section>
+      <section id="contact" class="content-block">
+        <h2>お問い合わせ</h2>
+        <p>ご予約やご相談など、お気軽にお問い合わせください。</p>
+        <form action="#" method="post" class="form-wrapper">
+          <label for="name">お名前</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">メールアドレス</label>
+          <input type="email" id="email" name="email" required />
+          <label for="message">メッセージ</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+          <button type="submit">送信</button>
+        </form>
+      </section>
+    </aside>
+  </div>
 
   <footer>
     <div class="footer-center">
-      &copy; 2025 あきる野ベーカリー All Rights Reserved.
+      &copy; 2025 こだわりのパン屋 All Rights Reserved.
     </div>
     <div class="footer-right">
-      <a href="https://www.instagram.com" target="_blank" rel="noopener">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="32"
-          height="32">
-      </a>
-      <a href="https://x.com" target="_blank" rel="noopener">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="X" width="32" height="32">
-      </a>
-      <a href="https://facebook.com" target="_blank" rel="noopener">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="32"
-          height="32">
-      </a>
+      <a href="https://www.instagram.com"><img src="..." alt="Instagram" /></a>
     </div>
   </footer>
 
