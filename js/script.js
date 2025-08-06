@@ -4,16 +4,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   toggle.addEventListener('click', function () {
     nav.classList.toggle('active');
-    toggle.classList.toggle('active'); // ←これを追加
+    toggle.classList.toggle('active');
   });
-});
 
   document.querySelectorAll('.calendar-switcher button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const target = btn.dataset.month;
-    document.querySelectorAll('.calendar-month').forEach(div => {
-      div.style.display = 'none';
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.month;
+      document.querySelectorAll('.calendar-month').forEach(div => {
+        div.style.display = 'none';
+      });
+      document.getElementById('calendar-' + target).style.display = 'block';
     });
-    document.getElementById('calendar-' + target).style.display = 'block';
   });
 });
