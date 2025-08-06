@@ -304,3 +304,25 @@ footer {
   font-size: 0.95rem;
 }
 
+.news-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+  flex-wrap: wrap; /* モバイルで折り返し可 */
+}
+
+.news-item time {
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-weight: bold;
+  color: var(--main-color);
+  font-size: 0.95rem;
+  min-width: 4.5em; /* 必要に応じて調整 */
+}
+
+.news-item p {
+  margin: 0;
+  flex: 1;
+}
+
+
