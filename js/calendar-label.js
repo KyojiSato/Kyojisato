@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const label = document.getElementById("calendar-month-label");
   if (label) {
-    const today = new Date();
+    const today = new Date("2025-09-10");
     const start = new Date(today);
     start.setDate(start.getDate() - start.getDay());
 
