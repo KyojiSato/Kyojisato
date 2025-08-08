@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const calendarBody = document.querySelector('#dynamic-calendar tbody');
   const today = new Date();
+  const todayStr = today.toDateString(); // 本日判定用
   const dayOfWeek = today.getDay();
   const startDate = new Date(today);
   startDate.setDate(today.getDate() - dayOfWeek); // 今週日曜スタート
@@ -24,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const cell = document.createElement('td');
       cell.textContent = d.getDate();
 
-      if (d.getDay() === 0) {
-        cell.classList.add('sunday'); // 日曜は赤字
+      if (d.toDateString() === todayStr) {
+        cell.classList.add('today');
       }
 
       if (isClosed(d)) {
