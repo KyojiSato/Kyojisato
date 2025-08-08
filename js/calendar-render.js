@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const calendarBody = document.querySelector('#dynamic-calendar tbody');
-  const today = new Date("2025-09-10");
+  const today = new Date();
   const dayOfWeek = today.getDay();
   const startDate = new Date(today);
   startDate.setDate(today.getDate() - dayOfWeek); // 今週の日曜
