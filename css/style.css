@@ -290,11 +290,14 @@ footer {
   color: #aaa;
 }
 
-/* 日曜の赤文字表示は廃止（スタイルを外すため記述しない） */
-
-
-
-
+/* カレンダー月ラベル：小さく・改行して控えめに表示 */
+.month-label {
+  display: block;       /* 改行して見出しの下に表示 */
+  font-size: 0.6em;     /* 小さめ */
+  color: #666;          /* 控えめな色 */
+  font-weight: normal;  /* 強調しすぎない */
+  margin-top: 0.2em;    /* 見出しとの余白 */
+}
 
 .news-list {
   list-style: none;
