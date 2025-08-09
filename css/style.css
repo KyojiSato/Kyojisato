@@ -287,3 +287,18 @@ footer {
     padding: 0 1rem;
   }
 }
+
+
+/* 営業カレンダーを80%に縮小して中央寄せ（!important不使用） */
+#calendar .calendar {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* モバイルでは全幅に戻す */
+@media (max-width: 768px) {
+  #calendar .calendar {
+    width: 100%;
+  }
+}
