@@ -261,7 +261,7 @@ footer {
 
 /* ===== 営業カレンダー（更新版） ===== */
 .calendar {
-  width: 100%;
+  width:  100%;
   border-collapse: collapse;
   margin-top: 1rem;
 }
@@ -273,21 +273,20 @@ footer {
   height: 40px;
 }
 
+/* 営業日・休業日 */
+.calendar td.open {
+  background-color: #fffbe6;
+  font-weight: normal;
+}
+.calendar td.closed {
+  background-color: #f2f2f2;
+  color: #aaa;
+}
 /* 本日を目立たせる（太字＋背景） */
 .calendar td.today {
   background-color: #e6f7ff;
   font-weight: bold;
   border: 2px solid #3399cc;
-}
-
-/* 営業日・休業日 */
-.calendar td.open {
-  background-color: #fffbe6;
-  font-weight: bold;
-}
-.calendar td.closed {
-  background-color: #f2f2f2;
-  color: #aaa;
 }
 
 /* カレンダー月ラベル：小さく・改行して控えめに表示 */
