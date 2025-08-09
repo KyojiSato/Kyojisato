@@ -254,6 +254,7 @@ footer {
   .menu-toggle {
     display: flex;
   }
+  .menu-images { grid-template-columns: 1fr; }
 }
 /* ================================
    📐 PCレイアウト main / sidebar
@@ -291,7 +292,7 @@ footer {
 
 /* 営業カレンダーを80%に縮小して中央寄せ（!important不使用） */
 #calendar .calendar {
-  width: 100%;
+  width:  80%;
   margin-left: auto;
   margin-right: auto;
 }
