@@ -6,11 +6,17 @@
   --base: #F0E7D8;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+
 body {
   font-family: 'Noto Sans JP', sans-serif;
   background-color: var(--main-bg);
   color: var(--main-color);
-  max-width: 1366px;
   margin: 0 auto;
 }
 
@@ -21,8 +27,7 @@ body {
 
 /* 中央寄せ最大幅のラッパー（必要ならHTMLに <div class="header-inner"> を追加） */
 .header-inner {
-  width: 90%;
-  max-width: 1366px;
+  width: 80%;
   margin: 0 auto;
   padding: 0.5rem 1rem;
   display: flex;
@@ -36,7 +41,8 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
   z-index: 1000;
   background-color: var(--base);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
