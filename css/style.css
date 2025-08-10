@@ -60,6 +60,8 @@ header {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
+
+  z-index: 1300;
 }
 
 .menu-toggle span {
