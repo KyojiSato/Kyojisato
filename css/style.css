@@ -181,7 +181,7 @@ header {
 }
 
 .news-list li {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   border-bottom: 1px dashed #ccc;
   padding-bottom: 0.5rem;
   font-size: 0.95rem;
@@ -190,7 +190,7 @@ header {
 .news-item {
   display: flex;
   align-items: flex-start;
-  gap: 1em;
+  gap: 0.2em;
   flex-wrap: wrap; モバイルで折り返し可
 }
 
