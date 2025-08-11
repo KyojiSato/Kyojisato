@@ -158,9 +158,10 @@ header {
 }
 /* 本日を目立たせる（太字＋背景） */
 .calendar td.today {
-  background-color: #e6f7ff;
+  /* background-color: #e6f7ff; */
   font-weight: bold;
-  border: 2px solid #3399cc;
+  border: 2px solid var(--accent);
+  color: var(--accent);
 }
 
 /* カレンダー月ラベル：小さく・改行して控えめに表示 */
