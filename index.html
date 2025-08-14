@@ -3,130 +3,138 @@
 <html lang="ja">
 
 <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>こだわりのパン屋</title>
-  <link href="css/style.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&amp;display=swap" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>こだわりのパン屋</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&amp;display=swap" rel="stylesheet" />
 </head>
 
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="logo">こだわりのパン屋</div>
-      <nav class="pc-nav">
-        <ul class="nav-list">
-          <li><a href="#">ホーム</a></li>
-          <li><a href="#about">私たちについて</a></li>
-          <li><a href="#menu">メニュー</a></li>
-          <li><a href="#contact">アクセス</a></li>
-        </ul>
-      </nav>
-      <div class="menu-toggle" id="menu-toggle">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-  </header>
-  <nav class="mobile-nav" id="mobile-nav">
-    <ul class="nav-list">
-      <li><a href="#">ホーム</a></li>
-      <li><a href="#about">私たちについて</a></li>
-      <li><a href="#menu">メニュー</a></li>
-      <li><a href="#contact">アクセス</a></li>
-    </ul>
-  </nav>
-  <div class="layout-wrapper">
-    <main class="main-content">
-      <section id="hero">
-        <h2>ふんわり、やさしいパンの香り</h2>
-        <p>あざみ野駅から徒歩5分の、街のパン屋さん</p>
-      </section>
-      <section class="content-block" id="about">
-        <h2>私たちについて</h2>
-        <p>地元の素材を活かし、一つひとつ丁寧に焼き上げています。</p>
-      </section>
-      <section class="content-block" id="menu">
-        <h2>おすすめのパン</h2>
-        <div class="menu-images">
-          <img alt="イチジクのパン" src="images/menu1_640.jpg" />
-          <img alt="クロワッサン" src="images/menu2_640.jpg" />
-          <img alt="いろいろなパン" src="images/menu3-640.jpg" />
-          <img alt="食パンスライス" src="images/menu4_640.jpg" />
+    <header>
+        <div class="header-inner">
+            <div class="logo">こだわりのパン屋</div>
+            <nav class="pc-nav">
+                <ul class="nav-list">
+                    <li><a href="#">ホーム</a></li>
+                    <li><a href="#about">私たちについて</a></li>
+                    <li><a href="#menu">メニュー</a></li>
+                    <li><a href="#contact">アクセス</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
         </div>
-      </section>
-      <section class="content-block" id="news">
-        <h2>お知らせ</h2>
-        <ul class="news-list">
-          <li class="news-item">
-            <time datetime="2025-08-06">8月6日</time>:
-            <p>夏季休業は8月17日（土）です。</p>
-          </li>
-          <li class="news-item">
-            <time datetime="2025-08-01">8月1日</time>
-            <p>新作「ブルーベリーパイ」登場。
-            <p>
-          </li>
-          <li class="news-item">
-            <time datetime="2025-07-20">7月20日</time>
-            <p>サイトをリニューアルしました。
-            <p>
-          </li>
+    </header>
+    <nav class="mobile-nav" id="mobile-nav">
+        <ul class="nav-list">
+            <li><a href="#">ホーム</a></li>
+            <li><a href="#about">私たちについて</a></li>
+            <li><a href="#menu">メニュー</a></li>
+            <li><a href="#contact">アクセス</a></li>
         </ul>
-      </section>
-      <section class="content-block" id="calendar">
-        <h2>営業カレンダー
-          <span id="calendar-month-label" class="month-label"></span>
-        </h2>
-        <table class="calendar" id="dynamic-calendar">
-          <thead>
-            <tr>
-              <th>日</th>
-              <th>月</th>
-              <th>火</th>
-              <th>水</th>
-              <th>木</th>
-              <th>金</th>
-              <th>土</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- JSがここに4週分を描画 -->
-          </tbody>
-        </table>
-      </section>
-      <section class="content-block" id="map">
-        <h2>店舗マップ</h2>
-        <p>〒225-0011 神奈川県横浜市青葉区あざみ野1丁目</p>
-        <p>田園都市線 あざみ野駅より徒歩5分</p>
-        <iframe allowfullscreen="" height="300" loading="lazy" src="https://www.google.com/maps/embed?pb=..."
-          style="border:0;" width="100%"></iframe>
-      </section>
-      <section class="content-block" id="contact">
-        <h2>お問い合わせ</h2>
-        <p>ご予約やご相談など、お気軽にお問い合わせください。</p>
-        <form action="#" class="form-wrapper" method="post">
-          <label for="name">お名前</label>
-          <input id="name" name="name" required="" type="text" />
-          <label for="email">メールアドレス</label>
-          <input id="email" name="email" required="" type="email" />
-          <label for="message">メッセージ</label>
-          <textarea id="message" name="message" required="" rows="5"></textarea>
-          <button type="submit">送信</button>
-        </form>
-      </section>
-    </main>
-  </div>
-  <footer>
-    <div class="footer-center">
-      © 2025 こだわりのパン屋 All Rights Reserved.
+    </nav>
+    <div class="layout-wrapper">
+        <main class="main-content">
+            <main-main>
+                <section id="hero">
+                    <h2>ふんわり、やさしいパンの香り</h2>
+                    <p>あざみ野駅から徒歩5分の、街のパン屋さん</p>
+                </section>
+                <section class="content-block" id="about">
+                    <h2>私たちについて</h2>
+                    <p>地元の素材を活かし、一つひとつ丁寧に焼き上げています。</p>
+                </section>
+                <section class="content-block" id="menu">
+                    <h2>おすすめのパン</h2>
+                    <div class="menu-images">
+                        <ul>
+                            <li><img alt="イチジクのパン" src="images/menu1_640.jpg" /></li>
+                            <li><img alt="クロワッサン" src="images/menu2_640.jpg" /></li>
+                            <li><img alt="いろいろなパン" src="images/menu3-640.jpg" /></li>
+                            <li><img alt="食パンスライス" src="images/menu4_640.jpg" /></li>
+                        </ul>
+                    </div>
+                </section>
+            </main-main>
+            <div class="sidebar">
+                <section class="content-block" id="news">
+                    <h2>お知らせ</h2>
+                    <ul class="news-list">
+                        <li class="news-item">
+                            <time datetime="2025-08-06">8月6日</time>
+                            <p>夏季休業は8月17日（土）ですううううううううううううううううううううううううううううううううううううううう</p>
+                        </li>
+                        <li class="news-item">
+                            <time datetime="2025-08-01">8月1日</time>
+                            <p>新作「ブルーベリーパイ」登場ううう</p>
+                        </li>
+                        <li class="news-item">
+                            <time datetime="2025-07-20">7月20日</time>
+                            <p>サイトをリニューアルしましたあああああああああああああああああああああああああああああああああ。</p>
+                        </li>
+                    </ul>
+                </section>
+                <section class="content-block" id="calendar">
+                    <h2>営業カレンダー
+                        <span id="calendar-month-label" class="month-label"></span>
+                    </h2>
+                    <table class="calendar" id="dynamic-calendar">
+                        <thead>
+                            <tr>
+                                <th>日</th>
+                                <th>月</th>
+                                <th>火</th>
+                                <th>水</th>
+                                <th>木</th>
+                                <th>金</th>
+                                <th>土</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- JSがここに4週分を描画 -->
+                        </tbody>
+                    </table>
+                </section>
+                <section class="content-block" id="map">
+                    <h2>店舗マップ</h2>
+                    <p>
+                    <address>〒192-0364　東京都八王子市南大沢2-27フレスコ南大沢</address>
+                    </p>
+                    <p>
+                    <address>京王相模原線 南大沢駅 徒歩3分</address>
+                    </p>
+                    <iframe allowfullscreen="" height="300" loading="lazy"
+                        src="https://www.google.com/maps/embed?pb=..." style="border:0;" width="100%"></iframe>
+                </section>
+                <section class="content-block" id="contact">
+                    <h2>お問い合わせ</h2>
+                    <p>ご予約やご相談など、お気軽にお問い合わせください。</p>
+                    <form action="#" class="form-wrapper" method="post">
+                        <label for="name">お名前</label>
+                        <input id="name" name="name" required="" type="text" />
+                        <label for="email">メールアドレス</label>
+                        <input id="email" name="email" required="" type="email" />
+                        <label for="message">メッセージ</label>
+                        <textarea id="message" name="message" required="" rows="5"></textarea>
+                        <button type="submit">送信</button>
+                    </form>
+                </section>
+            </div> <!-- sidebar-->
+        </main>
     </div>
-    <div class="footer-right">
-      <a href="https://www.instagram.com"><img alt="Instagram" src="..." /></a>
-    </div>
-  </footer>
-  <script src="js/nav.js"></script>
-  <script src="js/calendar-label.js"></script>
-  <script src="js/calendar-render.js"></script>
+    <footer>
+        <div class="footer-center">
+            © 2025 こだわりのパン屋 All Rights Reserved.
+        </div>
+        <div class="footer-right">
+            <a href="https://www.instagram.com"><img alt="Instagram" src="..." /></a>
+        </div>
+    </footer>
+    <script src="js/nav.js"></script>
+    <script src="js/calendar-label.js"></script>
+    <script src="js/calendar-render.js"></script>
 
 </body>
 
