@@ -88,8 +88,9 @@ header {
 }
 
 .content-block {
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 #hero {
@@ -100,6 +101,7 @@ header {
   color: white;
   text-align: center;
   padding: 4rem 1rem;
+  margin-bottom: 4rem;
 }
 
 #hero::before {
