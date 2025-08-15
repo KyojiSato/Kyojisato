@@ -87,6 +87,11 @@ header {
   display: block;
 }
 
+.content-block {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
 #hero {
   position: relative;
   background-image: url('../images/hiro1-640.jpg');
@@ -111,10 +116,6 @@ header {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
-.content-block {
-  padding: 2rem 1rem;
-  text-align: center;
-}
 
 .menu-images {
   display: grid;
@@ -130,6 +131,39 @@ header {
   object-fit: cover;
   border-radius: 8px;
 }
+
+.news-list {
+  list-style: none;
+  padding-left: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.news-list li {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.news-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.2em;
+  flex-wrap: wrap; モバイルで折り返し可
+}
+
+.news-item time {
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-weight: bold;
+  color: var(--main-color);
+  font-size: 0.95rem;
+  min-width:  4em; /* 必要に応じて調整 */
+}
+
+
 /* ===== 営業カレンダー（更新版） ===== */
 #calendar .calendar {
   width:  50%;
@@ -170,36 +204,6 @@ header {
   margin-top: 0.2em;    /* 見出しとの余白 */
 }
 
-.news-list {
-  list-style: none;
-  padding-left: 0;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.news-list li {
-  margin-bottom: 0.5rem;
-  border-bottom: 1px dashed #ccc;
-  padding-bottom: 0.5rem;
-  font-size: 0.95rem;
-}
-
-.news-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.2em;
-  flex-wrap: wrap; モバイルで折り返し可
-}
-
-.news-item time {
-  white-space: nowrap;
-  flex-shrink: 0;
-  font-weight: bold;
-  color: var(--main-color);
-  font-size: 0.95rem;
-  min-width:  4em; /* 必要に応じて調整 */
-}
 
 /* .news-item p { */
   /* margin: 0; */
