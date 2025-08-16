@@ -136,7 +136,6 @@ header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  max-width: 800px;
   margin: 0 auto;
 }
 @media (min-width: 992px) {
@@ -163,7 +162,7 @@ header {
 
 /* ===== PCレイアウト main / sidebar ===== */
 .layout-wrapper {
-  max-width: 1366px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 2rem 1rem;
 }
