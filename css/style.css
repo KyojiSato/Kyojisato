@@ -246,8 +246,8 @@ footer {
 }
 
 .footer-right img {
-  width: 16px;
-  height: 16px;
+  width: 32px;
+  height: 32px;
   margin-left: 16px;
 }
 
@@ -267,7 +267,7 @@ footer {
    ================================ */
 @media (min-width: 769px) {
   .layout-wrapper {
-    /* display: flex; */
+    display: flex;
     gap: 2rem;
     max-width: 1366px;
     margin: 0 auto;
@@ -275,10 +275,6 @@ footer {
     box-sizing: border-box;
   }
 
-  /* .main-content { */
-    /* flex: 3; */
-    /* min-width: 0; flexアイテムの幅制御 */
-  /* } */
   .main-content {
     display: flex;
     flex: 3;
