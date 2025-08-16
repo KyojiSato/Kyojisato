@@ -4,6 +4,9 @@
   --accent: #D9A066;
   --highlight: #A3B18A;
   --base: #F0E7D8;
+
+  --max-width: 1366px;
+  --body-padding-top: 64px;   /* 固定ヘッダー分の余白（ヘッダーの高さに合わせる） */
 }
 
 /* アクセシビリティ用（視覚的に非表示・スクリーンリーダーには表示） */
@@ -27,15 +30,15 @@ body {
   background-color: var(--main-bg);
   color: var(--main-color);
   margin: 0 auto;
-  /* 固定ヘッダー分の余白（ヘッダーの高さに合わせる） */
-  padding-top: 64px;
+
+  padding-top: var(--body-padding-top);
 }
 
 /* ===== ヘッダー ===== */
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
-  max-width: 1366px;
+  max-width: var(--max-width);
   margin: 0 auto;
   z-index: 1000;
   background-color: var(--base);
@@ -236,10 +239,13 @@ button {
 
 /* ===== フッター ===== */
 footer {
+  max-width: var(--max-width);
   background-color: var(--base);
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  margin:0 auto;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 .footer-right img {
   width: 32px; height: 32px; margin-left: 16px;
