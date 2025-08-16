@@ -119,7 +119,6 @@ header {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
-
 .menu-images {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -135,10 +134,11 @@ header {
   border-radius: 8px;
 }
 
+/* ==== お知らせ ==== */
 .news-list {
-  list-style: none;
+  list-style-type: none;
   padding-left: 0;
-  max-width: 800px;
+  /* max-width: 800px; */
   margin: 0 auto;
   text-align: left;
 }
@@ -150,21 +150,21 @@ header {
   font-size: 0.95rem;
 }
 
-.news-item {
+/* .news-item {
   display: flex;
   align-items: flex-start;
   gap: 0.2em;
-  flex-wrap: wrap; モバイルで折り返し可
-}
+  flex-wrap: wrap;
+} */
 
-.news-item time {
+/* .news-item time {
   white-space: nowrap;
   flex-shrink: 0;
   font-weight: bold;
   color: var(--main-color);
   font-size: 0.95rem;
-  min-width:  4em; /* 必要に応じて調整 */
-}
+  min-width:  5em;
+} */
 
 
 /* ===== 営業カレンダー（更新版） ===== */
@@ -207,11 +207,6 @@ header {
   margin-top: 0.2em;    /* 見出しとの余白 */
 }
 
-
-/* .news-item p { */
-  /* margin: 0; */
-  /* flex: 1; */
-/* } */
 
 
 .form-wrapper {
