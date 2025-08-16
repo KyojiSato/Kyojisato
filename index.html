@@ -13,7 +13,8 @@
 <body>
   <header>
     <div class="header-inner">
-      <div<h1>class="logo">こだわりのパン屋<H1></div>
+      <h1 class="logo" <a href="index.html"><img src="images/logo00.png" width="64" height="auto"
+          alt="azamino bakeryのロゴ"></a>パン屋さんのロゴ</h1>
       <nav class="pc-nav">
         <ul class="nav-list">
           <li><a href="#">ホーム</a></li>
@@ -28,12 +29,16 @@
     </div>
   </header>
   <nav class="mobile-nav" id="mobile-nav">
-    <ul class="nav-list">
-      <li><a href="#">ホーム</a></li>
-      <li><a href="#bakery-essentials">私たちのおもい</a></li>
-      <li><a href="#menu">メニュー</a></li>
-      <li><a href="#contact">アクセス</a></li>
-    </ul>
+    <section class="nav-items">
+      <h2 class="nav-items">
+        <ul class="nav-list">
+          <li><a href="#">ホーム</a></li>
+          <li><a href="#bakery-essentials">私たちのおもい</a></li>
+          <li><a href="#menu">メニュー</a></li>
+          <li><a href="#contact">アクセス</a></li>
+        </ul>
+      </h2>
+    </section> <!-- section class="nav-items" -->
   </nav>
   <div class="layout-wrapper">
     <main class="main-content">
@@ -45,23 +50,29 @@
         <section id="bakery-essentials" aria-labelledby="bakery-essentials-title" class="content-block">
           <h2 id="bakery-essentials-title">あざみ野ベーカリーのゆずれない3つのこと</h2>
 
-          <section aria-labelledby="essentials-material" class="content-block">
-            <h3 id="essentials-material">素材のこと</h3>
-            <p>国産の小麦と自家製の天然酵母、そして季節の恵みを大切にしています。一つ一つの素材が持つ本来の味を最大限に引き出すことを目指しています。</p>
-          </section>
+          <ul class="essentials-list">
+            <li>
+              <section aria-labelledby="essentials-material" class="content-block">
+                <h3 id="essentials-material">素材のこと</h3>
+                <p>国産の小麦と自家製の天然酵母、そして季節の恵みを大切にしています。一つ一つの素材が持つ本来の味を最大限に引き出すことを目指しています。</p>
+              </section>
+            </li>
 
-          <section aria-labelledby="essentials-process" class="content-block">
-            <h3 id="essentials-process">製法のこと</h3>
-            <p>長時間低温発酵させることで、小麦のうまみと香りをじっくりと引き出します。手間ひまを惜しまないことが、私たちのパン作りの基本です。</p>
-          </section>
+            <li>
+              <section aria-labelledby="essentials-process" class="content-block">
+                <h3 id="essentials-process">製法のこと</h3>
+                <p>長時間低温発酵させることで、小麦のうまみと香りをじっくりと引き出します。手間ひまを惜しまないことが、私たちのパン作りの基本です。</p>
+              </section>
+            </li>
 
-          <section aria-labelledby="essentials-heart" class="content-block">
-            <h3 id="essentials-heart">想いのこと</h3>
-            <p>毎日の食卓に、ささやかな幸せと笑顔をお届けしたい。そんな想いを込めて、毎日丁寧にパンを焼き上げています。</p>
-          </section>
+            <li>
+              <section aria-labelledby="essentials-heart" class="content-block">
+                <h3 id="essentials-heart">想いのこと</h3>
+                <p>毎日の食卓に、ささやかな幸せと笑顔をお届けしたい。そんな想いを込めて、毎日丁寧にパンを焼き上げています。</p>
+              </section>
+          </ul>
         </section>
 
-        </section>
         <section class="content-block" id="menu">
           <h2>おすすめのパン</h2>
           <div class="menu-images">
@@ -115,12 +126,10 @@
         </section>
         <section class="content-block" id="map">
           <h2>店舗マップ</h2>
-          <p>
-          <address>〒192-0364　東京都八王子市南大沢2-27フレスコ南大沢</address>
-          </p>
-          <p>
-          <address>京王相模原線 南大沢駅 徒歩3分</address>
-          </p>
+          <address>
+            <p>〒192-0364　東京都八王子市南大沢2-27フレスコ南大沢</p>
+            <p>京王相模原線 南大沢駅 徒歩3分</p>
+          </address>
           <iframe allowfullscreen="" height="300" loading="lazy" src="https://www.google.com/maps/embed?pb=..."
             style="border:0;" width="100%"></iframe>
         </section>
@@ -139,7 +148,7 @@
         </section>
       </div> <!-- sidebar-->
     </main>
-  </div>
+  </div> <!-- layout wapper -->
   <footer>
     <div class="footer-center">
       © 2025 こだわりのパン屋 All Rights Reserved.
