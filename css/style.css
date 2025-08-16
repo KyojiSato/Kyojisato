@@ -19,6 +19,7 @@
   padding: 0;
   text-decoration: none;
   list-style-type: none;
+  box-sizing: border-box;
 }
 
 body {
@@ -162,7 +163,6 @@ header {
   max-width: 1366px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  box-sizing: border-box;
 }
 
 .main-content {
