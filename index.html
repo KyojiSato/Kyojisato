@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-
 <html lang="ja">
-
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>こだわりのパン屋</title>
   <link href="css/style.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet" />
 </head>
 
 <body>
   <header>
     <div class="header-inner">
-      <h1 class="logo" <a href="index.html"><img src="images/logo00.png" width="64" height="auto"
-          alt="azamino bakeryのロゴ"></a>パン屋さんのロゴ</h1>
-      <nav class="pc-nav">
+      <h1 class="logo">
+        <a href="index.html" class="logo-link" aria-label="トップへ戻る">
+          <!-- PNGのままでもOK。SVGに差し替える場合は images/logo.svg に変更 -->
+          <img src="images/logo00.png" width="64" alt="azamino bakeryのロゴ">
+        </a>
+        <span class="site-title">パン屋さんのロゴ</span>
+      </h1>
+
+      <nav class="pc-nav" aria-label="メインメニュー">
         <ul class="nav-list">
           <li><a href="#">ホーム</a></li>
           <li><a href="#bakery-essentials">私たちのおもい</a></li>
@@ -23,33 +27,35 @@
           <li><a href="#contact">アクセス</a></li>
         </ul>
       </nav>
-      <div class="menu-toggle" id="menu-toggle">
+
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="メニューを開閉">
         <span></span><span></span><span></span>
-      </div>
+      </button>
     </div>
   </header>
-  <nav class="mobile-nav" id="mobile-nav">
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="モバイルメニュー">
     <section class="nav-items">
-      <h2 class="nav-items">
-        <ul class="nav-list">
-          <li><a href="#">ホーム</a></li>
-          <li><a href="#bakery-essentials">私たちのおもい</a></li>
-          <li><a href="#menu">メニュー</a></li>
-          <li><a href="#contact">アクセス</a></li>
-        </ul>
-      </h2>
-    </section> <!-- section class="nav-items" -->
+      <h2 class="visually-hidden">モバイルメニュー</h2>
+      <ul class="nav-list">
+        <li><a href="#">ホーム</a></li>
+        <li><a href="#bakery-essentials">私たちのおもい</a></li>
+        <li><a href="#menu">メニュー</a></li>
+        <li><a href="#contact">アクセス</a></li>
+      </ul>
+    </section>
   </nav>
+
   <div class="layout-wrapper">
     <main class="main-content">
       <div class="main-bar">
-        <section id="hero" class="main-content">
+        <section id="hero" class="content-block">
           <h2>ふんわり、やさしいパンの香り</h2>
           <p>あざみ野駅から徒歩5分の、街のパン屋さん</p>
         </section>
+
         <section id="bakery-essentials" aria-labelledby="bakery-essentials-title" class="content-block">
           <h2 id="bakery-essentials-title">あざみ野ベーカリーのゆずれない3つのこと</h2>
-
           <ul class="essentials-list">
             <li>
               <section aria-labelledby="essentials-material" class="content-block">
@@ -57,19 +63,18 @@
                 <p>国産の小麦と自家製の天然酵母、そして季節の恵みを大切にしています。一つ一つの素材が持つ本来の味を最大限に引き出すことを目指しています。</p>
               </section>
             </li>
-
             <li>
               <section aria-labelledby="essentials-process" class="content-block">
                 <h3 id="essentials-process">製法のこと</h3>
                 <p>長時間低温発酵させることで、小麦のうまみと香りをじっくりと引き出します。手間ひまを惜しまないことが、私たちのパン作りの基本です。</p>
               </section>
             </li>
-
             <li>
               <section aria-labelledby="essentials-heart" class="content-block">
                 <h3 id="essentials-heart">想いのこと</h3>
                 <p>毎日の食卓に、ささやかな幸せと笑顔をお届けしたい。そんな想いを込めて、毎日丁寧にパンを焼き上げています。</p>
               </section>
+            </li>
           </ul>
         </section>
 
@@ -77,46 +82,40 @@
           <h2>おすすめのパン</h2>
           <div class="menu-images">
             <ul>
-              <li><img alt="イチジクのパン" src="images/menu1_640.jpg" /></li>
-              <li><img alt="クロワッサン" src="images/menu2_640.jpg" /></li>
-              <li><img alt="いろいろなパン" src="images/menu3-640.jpg" /></li>
-              <li><img alt="食パンスライス" src="images/menu4_640.jpg" /></li>
+              <li><img alt="イチジクのパン" src="images/menu1_640.jpg"></li>
+              <li><img alt="クロワッサン" src="images/menu2_640.jpg"></li>
+              <li><img alt="いろいろなパン" src="images/menu3-640.jpg"></li>
+              <li><img alt="食パンスライス" src="images/menu4_640.jpg"></li>
             </ul>
           </div>
-        </section> <!-- id="menu" -->
-      </div> <!-- .main-bar-->
-      <div class="side-bar">
+        </section>
+      </div>
+
+      <aside class="sidebar">
         <section class="content-block" id="news">
           <h2>お知らせ</h2>
           <ul class="news-list">
             <li class="news-item">
               <time datetime="2025-08-06">8月6日</time>
-              <p>夏季休業は8月17日（土）ですううううううううううううううううううううううううううううううううううううううう</p>
+              <p>夏季休業は8月17日（土）です。</p>
             </li>
             <li class="news-item">
               <time datetime="2025-08-01">8月1日</time>
-              <p>新作「ブルーベリーパイ」登場ううう</p>
+              <p>新作「ブルーベリーパイ」登場！</p>
             </li>
             <li class="news-item">
               <time datetime="2025-07-20">7月20日</time>
-              <p>サイトをリニューアルしましたあああああああああああああああああああああああああああああああああ。</p>
+              <p>サイトをリニューアルしました。</p>
             </li>
           </ul>
         </section>
+
         <section class="content-block" id="calendar">
-          <h2>営業カレンダー
-            <span id="calendar-month-label" class="month-label"></span>
-          </h2>
+          <h2>営業カレンダー <span id="calendar-month-label" class="month-label"></span></h2>
           <table class="calendar" id="dynamic-calendar">
             <thead>
               <tr>
-                <th>日</th>
-                <th>月</th>
-                <th>火</th>
-                <th>水</th>
-                <th>木</th>
-                <th>金</th>
-                <th>土</th>
+                <th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
               </tr>
             </thead>
             <tbody>
@@ -124,42 +123,49 @@
             </tbody>
           </table>
         </section>
+
         <section class="content-block" id="map">
           <h2>店舗マップ</h2>
           <address>
             <p>〒192-0364　東京都八王子市南大沢2-27フレスコ南大沢</p>
             <p>京王相模原線 南大沢駅 徒歩3分</p>
           </address>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.626269799133!2d139.37701997723812!3d35.61228447260959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018e2b0a23fffff%3A0x7a917e69bc1b5252!2z44OV44Os44K544Kz5Y2X5aSn5rKi!5e0!3m2!1sja!2sjp!4v1755334659566!5m2!1sja!2sjp" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.626269799133!2d139.37701997723812!3d35.61228447260959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018e2b0a23fffff%3A0x7a917e69bc1b5252!2z44OV44Os44K544Kz5Y2X5aSn5rKi!5e0!3m2!1sja!2sjp!4v1755334659566!5m2!1sja!2sjp"
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
+
         <section class="content-block" id="contact">
           <h2>お問い合わせ</h2>
           <p>お取り置きやご相談など、お気軽にお問い合わせください。</p>
           <form action="#" class="form-wrapper" method="post">
             <label for="name">お名前</label>
-            <input id="name" name="name" required="" type="text" />
+            <input id="name" name="name" required type="text" />
             <label for="email">メールアドレス</label>
-            <input id="email" name="email" required="" type="email" />
+            <input id="email" name="email" required type="email" />
             <label for="message">メッセージ</label>
-            <textarea id="message" name="message" required="" rows="5"></textarea>
+            <textarea id="message" name="message" required rows="5"></textarea>
             <button type="submit">送信</button>
           </form>
         </section>
-      </div> <!-- sidebar-->
+      </aside>
     </main>
-  </div> <!-- layout wapper -->
+  </div>
+
   <footer>
     <div class="footer-center">
       © 2025 こだわりのパン屋 All Rights Reserved.
     </div>
     <div class="footer-right">
-      <a href="https://www.instagram.com"><img alt="Instagram" src="images/Instagram_Glyph_Black.svg" width="32" height="32" /></a>
+      <a href="https://www.instagram.com" aria-label="Instagramを開く">
+        <img alt="Instagram" src="images/Instagram_Glyph_Black.svg" width="32" height="32" />
+      </a>
     </div>
   </footer>
+
   <script src="js/nav.js"></script>
   <script src="js/calendar-label.js"></script>
   <script src="js/calendar-render.js"></script>
-
 </body>
-
 </html>

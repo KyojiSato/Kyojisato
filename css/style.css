@@ -6,12 +6,19 @@
   --base: #F0E7D8;
 }
 
+/* アクセシビリティ用（視覚的に非表示・スクリーンリーダーには表示） */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip: rect(0 0 0 0); overflow: hidden;
+}
+
 * {
   margin: 0;
   padding: 0;
   text-decoration: none;
   list-style-type: none;
-  /** なんとか: なんとか */
 }
 
 body {
@@ -19,9 +26,21 @@ body {
   background-color: var(--main-bg);
   color: var(--main-color);
   margin: 0 auto;
+  /* 固定ヘッダー分の余白（ヘッダーの高さに合わせる） */
+  padding-top: 64px;
 }
 
-/* 中央寄せ最大幅のラッパー（必要ならHTMLに <div class="header-inner"> を追加） */
+/* ===== ヘッダー ===== */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  max-width: 1366px;
+  margin: 0 auto;
+  z-index: 1000;
+  background-color: var(--base);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
 .header-inner {
   width: 80%;
   margin: 0 auto;
@@ -29,20 +48,18 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: 64px;
 }
 
-/* ヘッダーを固定にする */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  max-width: 1366px;
-  margin: 0 auto;
-  z-index: 1000;
-  background-color: var(--base);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
+.logo img { height: auto; display: block; }
+.site-title { font-size: 1rem; }
 
 /*==== nav ====*/
 .nav-list {
@@ -53,7 +70,6 @@ header {
 }
 
 .nav-list li a {
-  text-decoration: none;
   color: var(--main-color);
   font-weight: bold;
 }
@@ -63,32 +79,32 @@ header {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-
   z-index: 1300;
+  background: transparent;
+  border: none;
 }
-
 .menu-toggle span {
   width: 25px;
   height: 3px;
   background-color: var(--main-color);
 }
 
+/* モバイルナビ */
 .mobile-nav {
   display: none;
   background-color: var(--base);
   padding: 1rem;
 }
+.mobile-nav.active { display: block; }
 
-.mobile-nav.active {
-  display: block;
-}
-
+/* 共通ブロック */
 .content-block {
   padding: 1rem 1rem;
   text-align: center;
   margin-bottom: 1rem;
 }
 
+/* ヒーロー */
 #hero {
   position: relative;
   background-image: url('../images/hiro1-640.jpg');
@@ -99,15 +115,12 @@ header {
   padding: 4rem 1rem;
   margin-bottom: 4rem;
 }
-
 #hero::before {
   content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  position: absolute; inset: 0;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 0;
 }
-
 #hero h2, #hero p {
   position: relative;
   z-index: 1;
@@ -115,14 +128,16 @@ header {
 }
 
 /* ==== メニュー ==== */
-.menu-images {
+.menu-images ul {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   max-width: 800px;
   margin: 0 auto;
 }
-
+@media (min-width: 992px) {
+  .menu-images ul { grid-template-columns: repeat(3, 1fr); }
+}
 .menu-images img {
   width: 100%;
   height: 300px;
@@ -132,13 +147,9 @@ header {
 
 /* ==== お知らせ ==== */
 .news-list {
-  list-style-type: none;
-  padding-left: 0;
-  /* max-width: 800px; */
   margin: 0 auto;
   text-align: left;
 }
-
 .news-list li {
   margin-bottom: 0.5rem;
   border-bottom: 1px dashed #ccc;
@@ -146,28 +157,34 @@ header {
   font-size: 0.95rem;
 }
 
-/* .news-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.2em;
-  flex-wrap: wrap;
-} */
+/* ===== PCレイアウト main / sidebar ===== */
+.layout-wrapper {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
 
-/* .news-item time {
-  white-space: nowrap;
-  flex-shrink: 0;
-  font-weight: bold;
-  color: var(--main-color);
-  font-size: 0.95rem;
-  min-width:  5em;
-} */
+.main-content {
+  display: block;
+}
+@media (min-width: 769px) {
+  .main-content {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+}
 
+.sidebar section { margin-bottom: 2rem; }
 
-/* ===== 営業カレンダー（更新版） ===== */
+/* ===== カレンダー ===== */
 #calendar .calendar {
-  width:  50%;
+  width: 70%;
+  max-width: 500px;
   border-collapse: collapse;
-  margin-top: 1rem;
+  margin: 1rem auto 0;
 }
 .calendar th,
 .calendar td {
@@ -176,35 +193,22 @@ header {
   text-align: center;
   height: 40px;
 }
-
-/* 営業日・休業日 */
-.calendar td.open {
-  background-color: #fffbe6;
-  font-weight: normal;
-}
-.calendar td.closed {
-  background-color: #f2f2f2;
-  color: #aaa;
-}
-/* 本日を目立たせる（太字＋背景） */
+.calendar td.open { background-color: #fffbe6; }
+.calendar td.closed { background-color: #f2f2f2; color: #777; }
 .calendar td.today {
-  /* background-color: #e6f7ff; */
   font-weight: bold;
   border: 2px solid var(--accent);
   color: var(--accent);
 }
-
-/* カレンダー月ラベル：小さく・改行して控えめに表示 */
 .month-label {
-  display: block;       /* 改行して見出しの下に表示 */
-  font-size: 0.6em;     /* 小さめ */
-  color: #666;          /* 控えめな色 */
-  font-weight: normal;  /* 強調しすぎない */
-  margin-top: 0.2em;    /* 見出しとの余白 */
+  display: block;
+  font-size: 0.6em;
+  color: #666;
+  font-weight: normal;
+  margin-top: 0.2em;
 }
 
-
-
+/* ===== フォーム ===== */
 .form-wrapper {
   background-color: #fff8f0;
   padding: 1rem;
@@ -213,13 +217,14 @@ header {
   margin: 1rem auto;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
-
 input, textarea {
   width: 100%;
   margin-bottom: 1rem;
   padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
 }
-
 button {
   padding: 0.75rem 1.5rem;
   background-color: var(--accent);
@@ -229,77 +234,20 @@ button {
   cursor: pointer;
 }
 
+/* ===== フッター ===== */
 footer {
   background-color: var(--base);
   padding: 1rem;
   display: flex;
   justify-content: space-between;
 }
-
 .footer-right img {
-  width: 32px;
-  height: 32px;
-  margin-left: 16px;
+  width: 32px; height: 32px; margin-left: 16px;
 }
 
-
-
+/* ===== レスポンシブ ===== */
 @media (max-width: 768px) {
-  .pc-nav {
-    display: none;
-  }
-  .menu-toggle {
-    display: flex;
-  }
-  .menu-images { grid-template-columns: 1fr; }
-}
-/* ================================
-   📐 PCレイアウト main / sidebar
-   ================================ */
-@media (min-width: 769px) {
-  .layout-wrapper {
-    display: flex;
-    gap: 2rem;
-    max-width: 1366px;
-    margin: 0 auto;
-    padding: 2rem;
-    box-sizing: border-box;
-  }
-
-  .main-content {
-    display: flex;
-    flex: 3;
-    min-width: 0;
-  }
-  .sidebar {
-    flex: 1;
-  }
-
-.sidebar section {
-  margin-bottom: 2rem;
-}
-  #hero {
-    height: 80vh;
-    min-height: 500px;
-    max-height: 700px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 1rem;
-  }
-}
-
-
-/* 営業カレンダーを80%に縮小して中央寄せ（!important不使用） */
-#calendar .calendar {
-   width:  70%; 
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* モバイルでは全幅に戻す */
-@media (max-width: 768px) {
-  #calendar .calendar {
-    width: 100%;
-  }
+  .pc-nav { display: none; }
+  .menu-toggle { display: flex; }
+  #calendar .calendar { width: 100%; max-width: none; }
 }
