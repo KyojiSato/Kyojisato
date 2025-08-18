@@ -179,17 +179,14 @@ header {
 
 /* ヒーロー */
 #hero {
-  width: 100%;
   position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
   background-image: url('../images/hiro1-1280.jpg');
   background-size: cover;
   background-position: center;
   color: white;
   text-align: center;
- 
-  max-width: var(--max-width);
-  margin: 0 auto;
-  
   padding: 4rem 1rem;
   margin-bottom: 4rem;
 }
