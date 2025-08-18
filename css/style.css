@@ -216,21 +216,37 @@ header {
 }
 
 /* ==== メニュー ==== */
+/* ==== 　おすすめのパン  ====*/
 .menu-images ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  /* 修正点6: より柔軟なグリッド */
-  gap: 1rem;
-  max-width: 900px;
+  list-style: none; /* デフォルトのリストマーカーを非表示にします */
+  padding: 0;
   margin: 0 auto;
+  max-width: 800px; /* 全体の幅を調整 */
+  
+  display: grid;
+  /* 画面が狭いときは1列、広いときは自動で2列に */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  justify-content: center; /* アイテムを中央に揃えます */
+  gap: 1.5rem; /* アイテム間の余白 */
 }
 
+.menu-images li {
+  /* カード型デザインの要素を適用します */
+  border: 1px solid var(--base);
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden; /* 画像が角丸からはみ出ないように */
+}
+
+/* 画像スタイル */
 .menu-images img {
   width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
+  height: 300px; /* 高さを固定 */
+  object-fit: cover; /* 画像をはみ出さずに表示 */
 }
+
+
 
 /* ゆずれないこと */
 /*
