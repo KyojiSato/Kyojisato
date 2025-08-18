@@ -12,7 +12,6 @@
 }
 
 
-/* 修正点2: 全称セレクタの修正とbodyへの適用 */
 * {
   margin: 0;
   padding: 0;
@@ -187,6 +186,10 @@ header {
   background-position: center;
   color: white;
   text-align: center;
+ 
+  max-width: var(--max-width);
+  margin: 0 auto;
+  
   padding: 4rem 1rem;
   margin-bottom: 4rem;
 }
