@@ -6,49 +6,72 @@
   --base: #F0E7D8;
 
   --max-width: 1366px;
-  --body-padding-top: 96px;   /* 固定ヘッダー分の余白（ヘッダーの高さに合わせる） */
+  /* --body-padding-top: 96px;   固定ヘッダー分の余白（ヘッダーの高さに合わせる） */
+  --header-height: 96px;
+  /* ヘッダー高さとしての変化数 */
 }
 
-/* アクセシビリティ用（視覚的に非表示・スクリーンリーダーには表示） */
-.visually-hidden {
-  position: absolute !important;
-  width: 1px; height: 1px;
-  margin: -1px; padding: 0; border: 0;
-  clip: rect(0 0 0 0); overflow: hidden;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  list-style-type: none;
-  box-sizing: border-box;
-}
-
+/* 修正点1: bodyのパディングを直接指定 */
 body {
   font-family: 'Noto Sans JP', sans-serif;
   background-color: var(--main-bg);
   color: var(--main-color);
   margin: 0 auto;
 
-  padding-top: var(--body-padding-top);
+  padding-top: var(--header-height);
 }
 
-/* ===== header footer main===== */
-.container {
-  width: 100%;
-  max-width: var(--max-width);
+/* 修正点2: 全称セレクタの修正とbodyへの適用 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  /* ...既存のスタイル... */
+  line-height: 1.6;
+  /* 行間を追加して可読性を向上 */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* 修正点3: .visually-hiddenをよりシンプルに */
+/* アクセシビリティ用（視覚的に非表示・スクリーンリーダーには表示） */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  /* テキストが折り返さないように */
+  clip-path: inset(100%);
+  /* clipを最新のclip-pathに */
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 
 /* ===== ヘッダー ===== */
 header {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   max-width: var(--max-width);
   margin: 0 auto;
   z-index: 1000;
   background-color: var(--base);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header-inner {
@@ -66,8 +89,13 @@ header {
   font-size: 1.2rem;
   font-weight: bold;
 }
-.logo img { height: auto; display: block; }
-.site-title { font-size: 1rem; }
+
+.logo img {
+  height: var(--header-height);
+  /* header高さと同期 */
+  width: auto;
+  object-fit: contain;
+}
 
 /*==== nav ====*/
 .nav-list {
@@ -80,6 +108,9 @@ header {
 .nav-list li a {
   color: var(--main-color);
   font-weight: bold;
+  padding: 1rem 0;
+  /* クリックしやすいようにpaddingを追加  */
+  transition: color 0.3s;
 }
 
 .menu-toggle {
@@ -90,20 +121,59 @@ header {
   z-index: 1300;
   background: transparent;
   border: none;
+  padding: 10px;
+  /* タッチしやすいようにpaddingを追加 */
 }
+
 .menu-toggle span {
   width: 25px;
   height: 3px;
   background-color: var(--main-color);
+  transition: all 0.3s;
 }
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
 
 /* モバイルナビ */
 .mobile-nav {
-  display: none;
+  position: fixed;
+  /* 固定ヘッダーの下に表示 */
+  top: var(--header-height);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
   background-color: var(--base);
-  padding: 1rem;
+  z-index: 999;
+  display: none;
+  padding: 2rem 1rem;
+  overflow-y: auto;
 }
-.mobile-nav.active { display: block; }
+
+.mobile-nav.active {
+  display: block;
+}
+
+.mobile-nav .nav-list {
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.mobile-nav .nav-list li a {
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
+}
 
 /* 共通ブロック */
 .content-block {
@@ -123,13 +193,23 @@ header {
   padding: 4rem 1rem;
   margin-bottom: 4rem;
 }
+
+@media (min-width: 992px) {
+  #hero {
+    background-image: url('../images/hiro1-1920.jpg');
+  }
+}
+
 #hero::before {
   content: "";
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 0;
 }
-#hero h2, #hero p {
+
+#hero h2,
+#hero p {
   position: relative;
   z-index: 1;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
@@ -138,13 +218,13 @@ header {
 /* ==== メニュー ==== */
 .menu-images ul {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* 修正点6: より柔軟なグリッド */
   gap: 1rem;
+  max-width: 900px;
   margin: 0 auto;
 }
-@media (min-width: 992px) {
-  .menu-images ul { grid-template-columns: repeat(3, 1fr); }
-}
+
 .menu-images img {
   width: 100%;
   height: 300px;
@@ -157,6 +237,7 @@ header {
   margin: 0 auto;
   text-align: left;
 }
+
 .news-list li {
   margin-bottom: 0.5rem;
   border-bottom: 1px dashed #ccc;
@@ -174,24 +255,27 @@ header {
 .main-content {
   display: block;
 }
+
 @media (min-width: 769px) {
   .main-content {
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 2rem;
-    align-items: start;
   }
 }
 
-.sidebar section { margin-bottom: 2rem; }
+.sidebar section {
+  margin-bottom: 2rem;
+}
 
 /* ===== カレンダー ===== */
 #calendar .calendar {
-  width: 70%;
+  width: 100%;
   max-width: 500px;
   border-collapse: collapse;
   margin: 1rem auto 0;
 }
+
 .calendar th,
 .calendar td {
   border: 1px solid #ccc;
@@ -199,13 +283,22 @@ header {
   text-align: center;
   height: 40px;
 }
-.calendar td.open { background-color: #fffbe6; }
-.calendar td.closed { background-color: #f2f2f2; color: #777; }
+
+.calendar td.open {
+  background-color: #fffbe6;
+}
+
+.calendar td.closed {
+  background-color: #f2f2f2;
+  color: #777;
+}
+
 .calendar td.today {
   font-weight: bold;
   border: 2px solid var(--accent);
   color: var(--accent);
 }
+
 .month-label {
   display: block;
   font-size: 0.6em;
@@ -217,20 +310,23 @@ header {
 /* ===== フォーム ===== */
 .form-wrapper {
   background-color: #fff8f0;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 12px;
   max-width: 400px;
   margin: 1rem auto;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
-input, textarea {
+
+input,
+textarea {
   width: 100%;
   margin-bottom: 1rem;
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: 1px solid #ddd;
   border-radius: 6px;
   background: #fff;
 }
+
 button {
   padding: 0.75rem 1.5rem;
   background-color: var(--accent);
@@ -238,25 +334,37 @@ button {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
+button:hover {
+  background-color: #c08752; /* ホバー時の色を追加 */
+}
+
 
 /* ===== フッター ===== */
 footer {
   max-width: var(--max-width);
+  margin: 0 auto;
   background-color: var(--base);
   padding: 1rem;
   display: flex;
   justify-content: space-between;
-  margin:0 auto;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  align-items: center; /* 垂直方向の中央揃え   */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .footer-right img {
-  width: 32px; height: 32px; margin-left: 16px;
+  width: 32px;
+  height: 32px;
+  margin-left: 16px;
 }
 
 /* ===== レスポンシブ ===== */
 @media (max-width: 768px) {
-  .pc-nav { display: none; }
-  .menu-toggle { display: flex; }
-  #calendar .calendar { width: 100%; max-width: none; }
+  .pc-nav {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+  }
 }
