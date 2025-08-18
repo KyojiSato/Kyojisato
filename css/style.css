@@ -29,7 +29,13 @@ body {
 }
 
 body {
-  /* ...既存のスタイル... */
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: var(--main-bg);
+  color: var(--main-color);
+  margin: 0 auto;
+
+  padding-top: var(--body-padding-top);
+
   line-height: 1.6;
   /* 行間を追加して可読性を向上 */
 }
