@@ -232,6 +232,51 @@ header {
   border-radius: 8px;
 }
 
+/* ゆずれないこと */
+/*
+   案2：カード型デザイン
+   各項目をボックスで囲み、影をつけることで個別の要素として見せます
+*/
+
+.essentials-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 画面サイズに応じてカラム数を自動調整 */
+  gap: 1.5rem; /* カード間の余白 */
+}
+
+.essentials-list li {
+  padding: 0;
+}
+
+.essentials-list li section { /* section要素を直接スタイリングします */
+  height: 100%;
+  padding: 2rem;
+  background-color: #fff;
+  border: 1px solid var(--base);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ホバーエフェクト（マウスオーバー時） */
+.essentials-list li section:hover {
+  transform: translateY(-5px); /* 少し上に浮き上がらせます */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* 各項目の見出しと本文をセンタリング */
+.essentials-list h3 {
+  text-align: center;
+}
+
+.essentials-list p {
+  text-align: left;
+}
+
 /* ==== お知らせ ==== */
 .news-list {
   margin: 0 auto;
