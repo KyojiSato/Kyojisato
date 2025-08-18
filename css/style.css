@@ -234,48 +234,70 @@ header {
 
 /* ゆずれないこと */
 /*
-   案2：カード型デザイン
-   各項目をボックスで囲み、影をつけることで個別の要素として見せます
+   案3：組み合わせデザイン
+   カード型レイアウトに、左側のアクセントラインを追加します。
 */
 
 .essentials-list {
   list-style: none;
   padding: 0;
-  margin: 0 auto;
+  margin: 0 auto; /* 中央揃えの基本 */
   max-width: 800px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 画面サイズに応じてカラム数を自動調整 */
-  gap: 1.5rem; /* カード間の余白 */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  justify-content: center; /* Gridコンテナ内でアイテムを中央揃えにします */
 }
 
 .essentials-list li {
   padding: 0;
 }
 
-.essentials-list li section { /* section要素を直接スタイリングします */
+.essentials-list li section {
   height: 100%;
-  padding: 2rem;
+  padding: 2rem 2rem 2rem 2.5rem; /* 左側のパディングを少し増やします */
   background-color: #fff;
   border: 1px solid var(--base);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; /* 疑似要素::beforeのために必要です */
+}
+
+/* 各項目にアクセントラインを追加します */
+.essentials-list li section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: var(--highlight);
+  border-radius: 12px 0 0 12px;
 }
 
 /* ホバーエフェクト（マウスオーバー時） */
 .essentials-list li section:hover {
-  transform: translateY(-5px); /* 少し上に浮き上がらせます */
+  transform: translateY(-5px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
-/* 各項目の見出しと本文をセンタリング */
 .essentials-list h3 {
-  text-align: center;
+  text-align: left;
 }
 
 .essentials-list p {
   text-align: left;
 }
+
+/* カード型デザインをベースに: gridを使ったレスポンシブなカードレイアウトと、box-shadow による立体感をそのまま活かしています。
+
+アクセントラインの追加: 各カードの左側に5px幅の縦線を追加しました。これにより、視覚的なアクセントが加わり、より洗練された印象になります。
+
+パディングの調整: 左側に線を入れるため、.essentials-list li section の padding を 2rem 2rem 2rem 2.5rem に変更し、テキストと線が重ならないようにしました。
+
+見出しと本文の左寄せ: 各カード内の見出し（h3）と本文（p）を左寄せに統一しました。これにより、より読みやすくなります。
+ */
 
 /* ==== お知らせ ==== */
 .news-list {
