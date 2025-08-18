@@ -7,8 +7,16 @@
 
   --max-width: 1366px;
   /* --body-padding-top: 96px;   固定ヘッダー分の余白（ヘッダーの高さに合わせる） */
-  --header-height: 96px;
+  --header-height: 192px;
   /* ヘッダー高さとしての変化数 */
+}
+
+
+/* 修正点2: 全称セレクタの修正とbodyへの適用 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* 修正点1: bodyのパディングを直接指定 */
@@ -21,14 +29,6 @@ body {
   padding-top: var(--header-height);
   line-height: 1.6;
 }
-
-/* 修正点2: 全称セレクタの修正とbodyへの適用 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 
 a {
   text-decoration: none;
@@ -180,6 +180,7 @@ header {
 
 /* ヒーロー */
 #hero {
+  width: 100%;
   position: relative;
   background-image: url('../images/hiro1-1280.jpg');
   background-size: cover;
