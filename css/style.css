@@ -181,7 +181,7 @@ header {
 /* ヒーロー */
 #hero {
   position: relative;
-  background-image: url('../images/hiro1-640.jpg');
+  background-image: url('../images/hiro1-1280.jpg');
   background-size: cover;
   background-position: center;
   color: white;
@@ -190,11 +190,11 @@ header {
   margin-bottom: 4rem;
 }
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   #hero {
-    background-image: url('../images/hiro1-1920.jpg');
+    background-image: url('../images/hiro1-1280.jpg');
   }
-}
+} */
 
 #hero::before {
   content: "";
