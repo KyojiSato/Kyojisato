@@ -7,7 +7,7 @@
 
   --max-width: 1366px;
   /* --body-padding-top: 96px;   固定ヘッダー分の余白（ヘッダーの高さに合わせる） */
-  --header-height: 192px;
+  --header-height: 64px;
   /* ヘッダー高さとしての変化数 */
 }
 
