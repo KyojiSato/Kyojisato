@@ -37,7 +37,15 @@ a {
 li {
   list-style-type: none;
 }
-
+/* 保留 */
+/* .mainbar {
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar {
+  height: 100vh;
+  overflow-y: auto;
+} */
 /* 修正点3: .visually-hiddenをよりシンプルに */
 /* アクセシビリティ用（視覚的に非表示・スクリーンリーダーには表示） */
 .visually-hidden {
