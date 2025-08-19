@@ -181,6 +181,7 @@ header {
 #hero {
   position: relative;
   max-width: var(--max-width);
+  height: 512px;
   margin: 0 auto;
   background-image: url('../images/hiro1-1280.jpg');
   background-size: cover;
