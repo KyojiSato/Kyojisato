@@ -4,13 +4,155 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Azamino Bakery – Unified Section System</title>
-  <meta name="description" content="あざみ野駅から徒歩圏。天然酵母と国産小麦のパン屋です。" />
-  <link href="css/style.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet" />
+  <!--
+    このファイルは「各セクションの見た目・余白・見出し・カード」を統一するための
+    参照実装です。実案件では CSS を css/style.css に分離して、クラス名をそのまま流用してください。
+    既存CSSとの衝突を避けるため、クラス名は `ab-` プレフィックスに統一しています。
+  -->
+  <style>
+    :root {
+      /* 既存の色変数があればそれを尊重し、なければフォールバック */
+      --main-bg: var(--ab-main-bg, #FEFBF5);
+      --main-color: var(--ab-main-color, #6b5b4b); /* 少し落ち着いたブラウン */
+      --accent: var(--ab-accent, #B07A3F);
+      --highlight: var(--ab-highlight, #9FB38A);
+      --base: var(--ab-base, #F1E8DA);
+
+      /* デザイントークン */
+      --max-w: 1100px;         /* PC最大幅（ヒーローとも共通化推奨） */
+      --radius: 14px;          /* 角丸 */
+      --shadow: 0 8px 24px rgba(0,0,0,.06);
+      --line: color-mix(in oklab, var(--main-color) 20%, #fff 80%);
+      --muted: color-mix(in oklab, var(--main-color) 55%, #fff 45%);
+
+      --space-1: .25rem;
+      --space-2: .5rem;
+      --space-3: .75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-7: 2rem;
+      --space-8: 2.5rem;
+    }
+
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Noto Sans JP', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      background: var(--main-bg);
+      color: var(--main-color);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* コンテナとレイアウト */
+    .ab-container { width: min(92vw, var(--max-w)); margin-inline: auto; }
+
+    .ab-layout { display: block; gap: var(--space-8); }
+    @media (min-width: 1024px) {
+      .ab-layout { display: grid; grid-template-columns: 2fr 1fr; align-items: start; }
+      .ab-aside { position: sticky; top: 96px; }
+    }
+
+    /* セクションの型（見出し・導入文・本文） */
+    .ab-section { padding-block: clamp(28px, 5vw, 64px); border-top: 1px solid var(--line); }
+    .ab-section:first-of-type { border-top: 0; }
+
+    .ab-section__header { display: grid; row-gap: .25rem; margin-bottom: var(--space-6); }
+    .ab-eyebrow { font-size: .78rem; letter-spacing: .08em; color: var(--accent); font-weight: 700; }
+    .ab-title { font-size: clamp(1.35rem, 1.1rem + 1vw, 2rem); line-height: 1.2; margin: 0; font-weight: 800; }
+    .ab-lead { margin: 0; color: var(--muted); font-size: clamp(.95rem, .9rem + .3vw, 1.05rem); }
+
+    /* 共通カード */
+    .ab-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .ab-card--pad { padding: var(--space-6); }
+
+    /* 共通ボタン */
+    .ab-btn { display: inline-flex; align-items: center; gap: .5em; padding: .7em 1.1em; border-radius: 999px; border: 1px solid var(--accent); background: transparent; color: var(--accent); text-decoration: none; font-weight: 700; }
+    .ab-btn:hover { background: color-mix(in oklab, var(--accent) 8%, #fff); }
+    .ab-btn--primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .ab-btn--primary:hover { filter: brightness(.96); }
+
+    /* グリッド（カード一覧など） */
+    .ab-grid { display: grid; gap: var(--space-6); }
+    .ab-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .ab-grid--3 { grid-template-columns: repeat(2, 1fr); }
+    @media (min-width: 860px) { .ab-grid--3 { grid-template-columns: repeat(3, 1fr); } }
+
+    /* ---------- MENU ---------- */
+    .ab-menu-card img { width: 100%; height: auto; display: block; border-top-left-radius: var(--radius); border-top-right-radius: var(--radius); }
+    .ab-menu-card .ab-card__body { padding: var(--space-5); }
+    .ab-menu-name { font-weight: 800; font-size: 1.05rem; margin: 0 0 .25rem; }
+    .ab-menu-meta { color: var(--muted); font-size: .9rem; }
+
+    /* ---------- NEWS ---------- */
+    .ab-news { display: grid; gap: var(--space-3); }
+    .ab-news-item { display: grid; grid-template-columns: 7.5ch 1fr; gap: var(--space-4); padding: var(--space-4); border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+    .ab-news-date { font-variant-numeric: tabular-nums; color: var(--muted); font-weight: 700; }
+    .ab-news-title { margin: 0; font-weight: 700; }
+    .ab-tag { display: inline-block; padding: .2em .6em; border-radius: 999px; font-size: .78rem; border: 1px solid var(--line); background: color-mix(in oklab, #fff 88%, var(--highlight) 12%); }
+
+    /* ---------- CALENDAR ---------- */
+    .ab-calendar { overflow-x: auto; }
+    .ab-calendar table { width: 100%; border-collapse: collapse; }
+    .ab-calendar th, .ab-calendar td { text-align: center; padding: .65rem; border-bottom: 1px solid var(--line); }
+    .ab-calendar thead th { position: sticky; top: 0; background: #fff; z-index: 1; }
+    .ab-closed { color: #b65; font-weight: 700; }
+    .ab-today { background: color-mix(in oklab, #fff 85%, var(--highlight) 15%); border-radius: 6px; }
+
+    /* ---------- ACCESS ---------- */
+    .ab-map { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: #fff; }
+    .ab-map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .ab-access-list { display: grid; gap: .4rem; margin: 0; padding: 0; list-style: none; }
+    .ab-access-list li { display: grid; grid-template-columns: 7ch 1fr; gap: var(--space-3); }
+
+    /* ---------- CONTACT ---------- */
+    .ab-contact { display: grid; gap: var(--space-6); }
+    .ab-form-embed { border-radius: var(--radius); border: 1px solid var(--line); overflow: hidden; background: #fff; }
+    .ab-form-embed iframe { display: block; width: 100%; height: 720px; border: 0; }
+
+    /* サブ（右カラム）用のカード */
+    .ab-aside .ab-card { margin-bottom: var(--space-6); }
+
+    /* 細部 */
+    .ab-meta { color: var(--muted); font-size: .9rem; }
+    .ab-divider { height: 1px; background: var(--line); margin-block: var(--space-6); }
+      
+    /* ---------- HERO ---------- */
+    .ab-hero { margin: clamp(12px, 2vw, 16px) auto; }
+    .ab-hero--contained { width: min(92vw, var(--max-w)); }
+    .ab-hero__bg {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: clip;
+      background: center / cover no-repeat;
+      background-image: var(--hero-image, url('https://placehold.jp/1280x800.png'));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      min-block-size: var(--hero-h, 60vh);
+    }
+    .ab-hero__bg::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.1) 40%, rgba(0,0,0,.42));
+    }
+    @media (min-width: 1024px) {
+      .ab-hero__bg { min-block-size: var(--hero-h-desktop, 1000px); }
+    }
+    .ab-hero__inner { position: relative; z-index: 1; display: grid; gap: var(--space-5); padding: clamp(24px, 6vw, 64px); color: #fff; }
+    .ab-hero .ab-eyebrow { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.25); }
+    .ab-hero__title { font-size: clamp(1.8rem, 1.2rem + 3vw, 3.2rem); line-height: 1.15; margin: 0; font-weight: 900; text-wrap: balance; }
+    .ab-hero__lead { margin: 0; max-width: 48ch; filter: drop-shadow(0 2px 6px rgba(0,0,0,.25)); }
+    .ab-hero__actions { display: inline-flex; gap: .75rem; flex-wrap: wrap; }
+    /* ヒーロー上のボタンは反転トーン */
+    .ab-hero .ab-btn { border-color: rgba(255,255,255,.7); color: #fff; background: rgba(0,0,0,.18); }
+    .ab-hero .ab-btn:hover { background: rgba(255,255,255,.22); }
+    .ab-hero .ab-btn--primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  </style>
 </head>
 <body>
-  <header class="ab-header">
-    <div class="ab-container ab-header__inner">
+  <header style="padding-block: .75rem; border-bottom: 1px solid var(--line); backdrop-filter: blur(6px); background: color-mix(in oklab, var(--main-bg) 84%, #fff 16%); position: sticky; top: 0; z-index: 10;">
+    <div class="ab-container" style="display:flex; justify-content:space-between; align-items:center; gap:1rem;">
       <strong>Azamino Bakery</strong>
       <nav aria-label="サイト内メニュー">
         <a class="ab-btn" href="#menu">メニュー</a>
@@ -23,8 +165,7 @@
   </header>
 
   <!-- ===================== HERO ===================== -->
-  <section class="ab-hero ab-hero--contained" aria-label="ヒーロー"
-           style="--hero-image:url('images/hiro1-1280.jpg'); --hero-h-desktop:1000px;">
+  <section class="ab-hero ab-hero--contained" aria-label="ヒーロー" style="--hero-image:url('images/hero1-1280.jpg'); --hero-h-desktop:1000px;">
     <div class="ab-hero__bg">
       <div class="ab-hero__inner">
         <span class="ab-eyebrow">AZAMINO BAKERY</span>
@@ -60,9 +201,8 @@
           </article>
           <!-- item 2 -->
           <article class="ab-card ab-menu-card" aria-labelledby="prd-2">
-             <img src="https://placehold.jp/600x400.png" alt="クロワッサン" />
-             <img src="./images/menu2_640.jpg" alt="クロワッサン" />
-             <div class="ab-card__body">
+            <img src="https://placehold.jp/600x400.png" alt="クロワッサン" />
+            <div class="ab-card__body">
               <h3 id="prd-2" class="ab-menu-name">クロワッサン</h3>
               <p class="ab-menu-meta">1個 280円</p>
             </div>
@@ -113,6 +253,7 @@
         </div>
 
         <div class="ab-card ab-card--pad ab-calendar" id="dynamic-calendar">
+          <!-- ここに既存のJSで動的描画してOK。以下はプレースホルダー表 -->
           <table aria-label="営業日カレンダー（例）">
             <thead>
               <tr>
@@ -136,6 +277,7 @@
         <div class="ab-section__header">
           <span class="ab-eyebrow">ACCESS</span>
           <h2 id="access-title" class="ab-title">アクセス</h2>
+          <p class="ab-lead">田園都市線 あざみ野駅から徒歩圏。駐輪スペースあり。</p>
         </div>
 
         <div class="ab-grid ab-grid--2">
@@ -150,6 +292,7 @@
             <a class="ab-btn ab-btn--primary" href="https://maps.google.com" target="_blank" rel="noopener">Google Map を開く</a>
           </div>
           <div class="ab-map ab-card">
+            <!-- Google Map 埋め込み例：URL差し替え -->
             <iframe loading="lazy" allowfullscreen src="https://www.google.com/maps?output=embed&q=Azamino%20Station"></iframe>
           </div>
         </div>
@@ -167,6 +310,7 @@
           <div class="ab-card ab-card--pad">
             <p class="ab-meta">電話：045-xxxx-xxxx（9:00–18:00） / メール：info@example.com</p>
           </div>
+          <!-- Googleフォームを使う場合は iframe を差替え -->
           <div class="ab-form-embed ab-card">
             <iframe title="お問い合わせフォーム" src="https://docs.google.com/forms/d/e/1FAIpQLSf-demo/viewform?embedded=true">読み込んでいます…</iframe>
           </div>
