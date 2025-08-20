@@ -124,7 +124,7 @@ body {
   border-radius: var(--radius);
   overflow: clip;
   background: center / cover no-repeat;
-  background-image: var(--hero-image, url('https://placehold.jp/1280x800.png'));
+  background-image: var(--hero-image, url('../images/hiro1-1280.jpg'));
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
   min-block-size: var(--hero-h, 60vh);
