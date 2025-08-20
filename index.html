@@ -1,244 +1,203 @@
 <!DOCTYPE html>
+
 <html lang="ja">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Azamino Bakery – Unified Section System</title>
-  <link rel="stylesheet" href="css/style.css">
-
-  <!--
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Azamino Bakery – Unified Section System</title>
+<!--
     このファイルは「各セクションの見た目・余白・見出し・カード」を統一するための
     参照実装です。実案件では CSS を css/style.css に分離して、クラス名をそのまま流用してください。
     既存CSSとの衝突を避けるため、クラス名は `ab-` プレフィックスに統一しています。
   -->
+<link href="css/style.css" rel="stylesheet"/>
 </head>
-
 <body>
-  <header
-    style="padding-block: .75rem; border-bottom: 1px solid var(--line); backdrop-filter: blur(6px); background: color-mix(in oklab, var(--main-bg) 84%, #fff 16%); position: sticky; top: 0; z-index: 10;">
-    <div class="ab-container" style="display:flex; justify-content:space-between; align-items:center; gap:1rem;">
-      <strong>Azamino Bakery</strong>
-      <nav aria-label="サイト内メニュー">
-        <a class="ab-btn" href="#menu">メニュー</a>
-        <a class="ab-btn" href="#news">お知らせ</a>
-        <a class="ab-btn" href="#calendar">カレンダー</a>
-        <a class="ab-btn" href="#access">アクセス</a>
-        <a class="ab-btn ab-btn--primary" href="#contact">問い合わせ</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ===================== HERO ===================== -->
-  <section class="ab-hero ab-hero--contained" aria-label="ヒーロー"
-    <div class="ab-hero__bg">
-      <div class="ab-hero__inner">
-        <span class="ab-eyebrow">AZAMINO BAKERY</span>
-        <h1 class="ab-hero__title">毎朝、香りたつ食パンとクロワッサン。</h1>
-        <p class="ab-hero__lead">国産小麦と自家製酵母。焼きたてを、あなたの毎日に。</p>
-        <div class="ab-hero__actions">
-          <a class="ab-btn ab-btn--primary" href="#menu">メニューを見る</a>
-          <a class="ab-btn" href="#access">アクセス</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <main class="ab-container ab-layout">
-    <!-- ===================== MAIN ===================== -->
-    <div>
-      <!-- MENU -->
-      <section id="menu" class="ab-section" aria-labelledby="menu-title">
-        <div class="ab-section__header">
-          <span class="ab-eyebrow">MENU</span>
-          <h2 id="menu-title" class="ab-title">メニュー</h2>
-          <p class="ab-lead">看板の食パンとクロワッサンを中心に、焼きたてを毎日ご用意しています。</p>
-        </div>
-
-        <div class="ab-grid ab-grid--3">
-          <!-- item 1 -->
-          <article class="ab-card ab-menu-card" aria-labelledby="prd-1">
-            <img src="https://placehold.jp/600x400.png" alt="日本酒だねの食パン" />
-            <div class="ab-card__body">
-              <h3 id="prd-1" class="ab-menu-name">日本酒だねの食パン</h3>
-              <p class="ab-menu-meta">1本 680円 / 半分 350円</p>
-            </div>
-          </article>
-          <!-- item 2 -->
-          <article class="ab-card ab-menu-card" aria-labelledby="prd-2">
-            <img src="https://placehold.jp/600x400.png" alt="クロワッサン" />
-            <div class="ab-card__body">
-              <h3 id="prd-2" class="ab-menu-name">クロワッサン</h3>
-              <p class="ab-menu-meta">1個 280円</p>
-            </div>
-          </article>
-          <!-- item 3 -->
-          <article class="ab-card ab-menu-card" aria-labelledby="prd-3">
-            <img src="https://placehold.jp/600x400.png" alt="カレーパン" />
-            <div class="ab-card__body">
-              <h3 id="prd-3" class="ab-menu-name">カレーパン</h3>
-              <p class="ab-menu-meta">1個 320円</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- NEWS -->
-      <section id="news" class="ab-section" aria-labelledby="news-title">
-        <div class="ab-section__header">
-          <span class="ab-eyebrow">NEWS</span>
-          <h2 id="news-title" class="ab-title">お知らせ</h2>
-          <p class="ab-lead">季節のパンや臨時休業など最新情報をお届けします。</p>
-        </div>
-
-        <div class="ab-news" role="list">
-          <article class="ab-news-item" role="listitem">
-            <div class="ab-news-date">08/20</div>
-            <div>
-              <h3 class="ab-news-title">山形食パンの販売再開</h3>
-              <p class="ab-meta"><span class="ab-tag">季節限定</span> 材料入荷に伴い、今週より再開します。</p>
-            </div>
-          </article>
-          <article class="ab-news-item" role="listitem">
-            <div class="ab-news-date">08/16</div>
-            <div>
-              <h3 class="ab-news-title">台風接近に伴う営業時間変更</h3>
-              <p class="ab-meta"><span class="ab-tag">お知らせ</span> 開店を11時に変更します。</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- CALENDAR -->
-      <section id="calendar" class="ab-section" aria-labelledby="calendar-title">
-        <div class="ab-section__header">
-          <span class="ab-eyebrow">CALENDAR</span>
-          <h2 id="calendar-title" class="ab-title">営業日カレンダー</h2>
-          <p class="ab-lead">定休日：月・火・水（仮）。下記の「休」表示が休業日です。</p>
-        </div>
-
-        <div class="ab-card ab-card--pad ab-calendar" id="dynamic-calendar">
-          <!-- ここに既存のJSで動的描画してOK。以下はプレースホルダー表 -->
-          <table aria-label="営業日カレンダー（例）">
-            <thead>
-              <tr>
-                <th>日</th>
-                <th>月</th>
-                <th>火</th>
-                <th>水</th>
-                <th>木</th>
-                <th>金</th>
-                <th>土</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td class="ab-closed">休</td>
-                <td class="ab-closed">休</td>
-                <td class="ab-closed">休</td>
-                <td>4</td>
-                <td>5</td>
-                <td class="ab-today">6</td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td class="ab-closed">休</td>
-                <td class="ab-closed">休</td>
-                <td class="ab-closed">休</td>
-                <td>11</td>
-                <td>12</td>
-                <td>13</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- ACCESS -->
-      <section id="access" class="ab-section" aria-labelledby="access-title">
-        <div class="ab-section__header">
-          <span class="ab-eyebrow">ACCESS</span>
-          <h2 id="access-title" class="ab-title">アクセス</h2>
-          <p class="ab-lead">田園都市線 あざみ野駅から徒歩圏。駐輪スペースあり。</p>
-        </div>
-
-        <div class="ab-grid ab-grid--2">
-          <div class="ab-card ab-card--pad">
-            <ul class="ab-access-list">
-              <li><strong>住所</strong><span>横浜市青葉区〇〇-〇〇-〇〇</span></li>
-              <li><strong>電話</strong><span>045-xxxx-xxxx</span></li>
-              <li><strong>時間</strong><span>9:00–18:00（売切次第終了）</span></li>
-              <li><strong>休業</strong><span>月・火・水 + 不定休</span></li>
-            </ul>
-            <div class="ab-divider"></div>
-            <a class="ab-btn ab-btn--primary" href="https://maps.google.com" target="_blank" rel="noopener">Google Map
-              を開く</a>
-          </div>
-          <div class="ab-map ab-card">
-            <!-- Google Map 埋め込み例：URL差し替え -->
-            <iframe loading="lazy" allowfullscreen
-              src="https://www.google.com/maps?output=embed&q=Azamino%20Station"></iframe>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" class="ab-section" aria-labelledby="contact-title">
-        <div class="ab-section__header">
-          <span class="ab-eyebrow">CONTACT</span>
-          <h2 id="contact-title" class="ab-title">お問い合わせ</h2>
-          <p class="ab-lead">ご予約・取り置き・取材依頼など、こちらからどうぞ。</p>
-        </div>
-
-        <div class="ab-contact">
-          <div class="ab-card ab-card--pad">
-            <p class="ab-meta">電話：045-xxxx-xxxx（9:00–18:00） / メール：info@example.com</p>
-          </div>
-          <!-- Googleフォームを使う場合は iframe を差替え -->
-          <div class="ab-form-embed ab-card">
-            <iframe title="お問い合わせフォーム"
-              src="https://docs.google.com/forms/d/e/1FAIpQLSf-demo/viewform?embedded=true">読み込んでいます…</iframe>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- ===================== ASIDE（PC時 右側） ===================== -->
-    <aside class="ab-aside" aria-label="サイド情報">
-      <div class="ab-card ab-card--pad">
-        <h3 class="ab-menu-name" style="margin-top:0">お知らせ（最新3件）</h3>
-        <div class="ab-news" role="list">
-          <article class="ab-news-item" role="listitem">
-            <div class="ab-news-date">08/20</div>
-            <div><strong>山形食パンの販売再開</strong></div>
-          </article>
-          <article class="ab-news-item" role="listitem">
-            <div class="ab-news-date">08/16</div>
-            <div><strong>台風接近に伴う営業時間変更</strong></div>
-          </article>
-        </div>
-      </div>
-
-      <div class="ab-card ab-card--pad">
-        <h3 class="ab-menu-name" style="margin-top:0">アクセス</h3>
-        <div class="ab-map" style="margin-top:.5rem;">
-          <iframe loading="lazy" allowfullscreen
-            src="https://www.google.com/maps?output=embed&q=Azamino%20Station"></iframe>
-        </div>
-      </div>
-
-      <div class="ab-card ab-card--pad">
-        <h3 class="ab-menu-name" style="margin-top:0">問い合わせ</h3>
-        <p class="ab-meta">取り置きのご連絡はお電話が確実です。</p>
-        <a class="ab-btn ab-btn--primary" href="#contact">フォームを開く</a>
-      </div>
-    </aside>
-  </main>
-
-  <footer class="ab-container" style="padding-block:40px; color: var(--muted);">
-    <small>&copy; 2025 Azamino Bakery</small>
-  </footer>
+<header class="ab-header">
+<div class="ab-container ab-header__inner">
+<strong>Azamino Bakery</strong>
+<nav aria-label="サイト内メニュー">
+<a class="ab-btn" href="#menu">メニュー</a>
+<a class="ab-btn" href="#news">お知らせ</a>
+<a class="ab-btn" href="#calendar">カレンダー</a>
+<a class="ab-btn" href="#access">アクセス</a>
+<a class="ab-btn ab-btn--primary" href="#contact">問い合わせ</a>
+</nav>
+</div>
+</header>
+<!-- ===================== HERO ===================== -->
+<section aria-label="ヒーロー" class="ab-hero ab-hero--contained ab-hero--home">
+<div class="ab-hero__bg">
+<div class="ab-hero__inner">
+<span class="ab-eyebrow">AZAMINO BAKERY</span>
+<h1 class="ab-hero__title">毎朝、香りたつ食パンとクロワッサン。</h1>
+<p class="ab-hero__lead">国産小麦と自家製酵母。焼きたてを、あなたの毎日に。</p>
+<div class="ab-hero__actions">
+<a class="ab-btn ab-btn--primary" href="#menu">メニューを見る</a>
+<a class="ab-btn" href="#access">アクセス</a>
+</div>
+</div>
+</div>
+</section>
+<main class="ab-container ab-layout">
+<!-- ===================== MAIN ===================== -->
+<div>
+<!-- MENU -->
+<section aria-labelledby="menu-title" class="ab-section" id="menu">
+<div class="ab-section__header">
+<span class="ab-eyebrow">MENU</span>
+<h2 class="ab-title" id="menu-title">メニュー</h2>
+<p class="ab-lead">看板の食パンとクロワッサンを中心に、焼きたてを毎日ご用意しています。</p>
+</div>
+<div class="ab-grid ab-grid--3">
+<!-- item 1 -->
+<article aria-labelledby="prd-1" class="ab-card ab-menu-card">
+<img alt="日本酒だねの食パン" src="https://placehold.jp/600x400.png"/>
+<div class="ab-card__body">
+<h3 class="ab-menu-name" id="prd-1">日本酒だねの食パン</h3>
+<p class="ab-menu-meta">1本 680円 / 半分 350円</p>
+</div>
+</article>
+<!-- item 2 -->
+<article aria-labelledby="prd-2" class="ab-card ab-menu-card">
+<img alt="クロワッサン" src="https://placehold.jp/600x400.png"/>
+<div class="ab-card__body">
+<h3 class="ab-menu-name" id="prd-2">クロワッサン</h3>
+<p class="ab-menu-meta">1個 280円</p>
+</div>
+</article>
+<!-- item 3 -->
+<article aria-labelledby="prd-3" class="ab-card ab-menu-card">
+<img alt="カレーパン" src="https://placehold.jp/600x400.png"/>
+<div class="ab-card__body">
+<h3 class="ab-menu-name" id="prd-3">カレーパン</h3>
+<p class="ab-menu-meta">1個 320円</p>
+</div>
+</article>
+</div>
+</section>
+<!-- NEWS -->
+<section aria-labelledby="news-title" class="ab-section" id="news">
+<div class="ab-section__header">
+<span class="ab-eyebrow">NEWS</span>
+<h2 class="ab-title" id="news-title">お知らせ</h2>
+<p class="ab-lead">季節のパンや臨時休業など最新情報をお届けします。</p>
+</div>
+<div class="ab-news" role="list">
+<article class="ab-news-item" role="listitem">
+<div class="ab-news-date">08/20</div>
+<div>
+<h3 class="ab-news-title">山形食パンの販売再開</h3>
+<p class="ab-meta"><span class="ab-tag">季節限定</span> 材料入荷に伴い、今週より再開します。</p>
+</div>
+</article>
+<article class="ab-news-item" role="listitem">
+<div class="ab-news-date">08/16</div>
+<div>
+<h3 class="ab-news-title">台風接近に伴う営業時間変更</h3>
+<p class="ab-meta"><span class="ab-tag">お知らせ</span> 開店を11時に変更します。</p>
+</div>
+</article>
+</div>
+</section>
+<!-- CALENDAR -->
+<section aria-labelledby="calendar-title" class="ab-section" id="calendar">
+<div class="ab-section__header">
+<span class="ab-eyebrow">CALENDAR</span>
+<h2 class="ab-title" id="calendar-title">営業日カレンダー</h2>
+<p class="ab-lead">定休日：月・火・水（仮）。下記の「休」表示が休業日です。</p>
+</div>
+<div class="ab-card ab-card--pad ab-calendar" id="dynamic-calendar">
+<!-- ここに既存のJSで動的描画してOK。以下はプレースホルダー表 -->
+<table aria-label="営業日カレンダー（例）">
+<thead>
+<tr>
+<th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td><td class="ab-closed">休</td><td class="ab-closed">休</td><td class="ab-closed">休</td><td>4</td><td>5</td><td class="ab-today">6</td>
+</tr>
+<tr>
+<td>7</td><td class="ab-closed">休</td><td class="ab-closed">休</td><td class="ab-closed">休</td><td>11</td><td>12</td><td>13</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- ACCESS -->
+<section aria-labelledby="access-title" class="ab-section" id="access">
+<div class="ab-section__header">
+<span class="ab-eyebrow">ACCESS</span>
+<h2 class="ab-title" id="access-title">アクセス</h2>
+<p class="ab-lead">田園都市線 あざみ野駅から徒歩圏。駐輪スペースあり。</p>
+</div>
+<div class="ab-grid ab-grid--2">
+<div class="ab-card ab-card--pad">
+<ul class="ab-access-list">
+<li><strong>住所</strong><span>横浜市青葉区〇〇-〇〇-〇〇</span></li>
+<li><strong>電話</strong><span>045-xxxx-xxxx</span></li>
+<li><strong>時間</strong><span>9:00–18:00（売切次第終了）</span></li>
+<li><strong>休業</strong><span>月・火・水 + 不定休</span></li>
+</ul>
+<div class="ab-divider"></div>
+<a class="ab-btn ab-btn--primary" href="https://maps.google.com" rel="noopener" target="_blank">Google Map を開く</a>
+</div>
+<div class="ab-map ab-card">
+<!-- Google Map 埋め込み例：URL差し替え -->
+<iframe allowfullscreen="" loading="lazy" src="https://www.google.com/maps?output=embed&amp;q=Azamino%20Station"></iframe>
+</div>
+</div>
+</section>
+<!-- CONTACT -->
+<section aria-labelledby="contact-title" class="ab-section" id="contact">
+<div class="ab-section__header">
+<span class="ab-eyebrow">CONTACT</span>
+<h2 class="ab-title" id="contact-title">お問い合わせ</h2>
+<p class="ab-lead">ご予約・取り置き・取材依頼など、こちらからどうぞ。</p>
+</div>
+<div class="ab-contact">
+<div class="ab-card ab-card--pad">
+<p class="ab-meta">電話：045-xxxx-xxxx（9:00–18:00） / メール：info@example.com</p>
+</div>
+<!-- Googleフォームを使う場合は iframe を差替え -->
+<div class="ab-form-embed ab-card">
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf-demo/viewform?embedded=true" title="お問い合わせフォーム">読み込んでいます…</iframe>
+</div>
+</div>
+</section>
+</div>
+<!-- ===================== ASIDE（PC時 右側） ===================== -->
+<aside aria-label="サイド情報" class="ab-aside">
+<div class="ab-card ab-card--pad">
+<h3 class="ab-menu-name ab-mt-0">お知らせ（最新3件）</h3>
+<div class="ab-news" role="list">
+<article class="ab-news-item" role="listitem">
+<div class="ab-news-date">08/20</div>
+<div><strong>山形食パンの販売再開</strong></div>
+</article>
+<article class="ab-news-item" role="listitem">
+<div class="ab-news-date">08/16</div>
+<div><strong>台風接近に伴う営業時間変更</strong></div>
+</article>
+</div>
+</div>
+<div class="ab-card ab-card--pad">
+<h3 class="ab-menu-name ab-mt-0">アクセス</h3>
+<div class="ab-map ab-mt-2">
+<iframe allowfullscreen="" loading="lazy" src="https://www.google.com/maps?output=embed&amp;q=Azamino%20Station"></iframe>
+</div>
+</div>
+<div class="ab-card ab-card--pad">
+<h3 class="ab-menu-name ab-mt-0">問い合わせ</h3>
+<p class="ab-meta">取り置きのご連絡はお電話が確実です。</p>
+<a class="ab-btn ab-btn--primary" href="#contact">フォームを開く</a>
+</div>
+</aside>
+</main>
+<footer class="ab-container ab-footer">
+<small>© 2025 Azamino Bakery</small>
+</footer>
 </body>
-
 </html>
