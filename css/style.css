@@ -24,7 +24,18 @@
         --space-6: 1.5rem;
         --space-7: 2rem;
         --space-8: 2.5rem;
+
+        /* モバイル既定 */
+        --hero-image: url('../images/hero1-640.jpg');
+        --hero-h-mobile: 60vh;
+        --hero-h-desktop: 256px;
     }
+
+    /* @media (min-width: 1024px) {
+        :root {
+            --hero-image: url('../images/hero1-1280.jpg');
+        }
+    } */
 
     html,
     body {
@@ -325,6 +336,25 @@
     }
 
     /* ---------- HERO ---------- */
+    #hero {
+        background-image: var(--hero-image);
+        min-height: var(--hero-h-mobile);
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* モバイルは軽い画像 */
+    .ab-hero {
+        --hero-image: url('../images/hero1-640.jpg');
+    }
+
+    /* タブレット以上で1280に */
+    @media (min-width: 768px) {
+        .ab-hero {
+            --hero-image: url('../images/hero1-1280.jpg');
+        }
+    }
+
     .ab-hero {
         margin: clamp(12px, 2vw, 16px) auto;
     }
