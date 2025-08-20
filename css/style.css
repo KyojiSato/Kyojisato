@@ -39,6 +39,7 @@ li {
 }
 /* 保留 */
  /* .mainbar {
+ .mainbar {
   height: 300px;
   overflow-y: auto;
 }
@@ -62,7 +63,7 @@ li {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-#manu {
+#menu {
   padding-top: var(--header-height);
 }
 
