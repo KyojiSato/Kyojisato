@@ -437,7 +437,7 @@ body {
 }
 
 .site-hero--home {
-    --hero-image: url('images/hero1-1280.jpg');
+    --hero-image: url('../images/hero1-1280.jpg');
     --hero-h-desktop: 1000px;
 }
 
