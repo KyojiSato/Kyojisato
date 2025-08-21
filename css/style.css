@@ -5,7 +5,7 @@
     --highlight: var(--site-highlight, #9FB38A);
     --base: var(--site-base, #F1E8DA);
 
-    --max-w: 1100px;
+    --max-w: 1366px;
     --radius: 14px;
     --shadow: 0 8px 24px rgba(0, 0, 0, .06);
     --line: color-mix(in oklab, var(--main-color) 20%, #fff 80%);
@@ -449,6 +449,25 @@ body {
 }
 
 /* ========== Hero (Block: site-hero) ========== */
+/* 既存：コンテナ幅 */
+/* .site-hero--contained { width: var(--container-w, min(92vw, var(--max-w))); } */
+
+/* 追加：全幅（フルブリード） */
+/* .site-hero--full { */
+  /* width: 100%; */
+  /* margin-inline: 0;              端まで伸ばす */
+/* } */
+/* .site-hero--full .site-hero__bg { */
+  /* border-radius: 0;              角丸を外してフラットに */
+  /* border: 0;                     枠線を外す（任意） */
+  /* box-shadow: none;              影を外す（任意） */
+  /* min-block-size: clamp(50vh, 70vh, 80vh); PCで少し高めに（好みで調整） */
+/* } */
+/* ヘッダー直下で余白ゼロにしたい時（任意） */
+/* .site-hero--full { margin-block-start: 0; } */
+
+
+
 .site-hero {
     margin: clamp(12px, 2vw, 16px) auto;
 }
