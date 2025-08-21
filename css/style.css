@@ -138,7 +138,7 @@ body {
         grid-template-columns: 2fr 1fr;
         align-items: start;
     }
-
+    /*  2列レイアウトはやめ、以下無くて可  */
     .site-layout__aside {
         position: sticky;
         top: 96px;
