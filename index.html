@@ -9,12 +9,15 @@
 <body>
 <header class="site-header">
   <div class="site-container site-header__inner">
-    <strong>Azamino Bakery</strong>
-    <input aria-hidden="true" class="site-nav-toggle" id="site-nav-toggle" type="checkbox">
-    <label aria-label="メニュー" class="site-nav-btn" for="site-nav-toggle">
+    <strong class="site-header__brand">Azamino Bakery</strong>
+
+    <!-- CSS-only toggle -->
+    <input aria-hidden="true" class="site-header__toggle" id="site-nav-toggle" type="checkbox">
+    <label aria-label="メニュー" class="site-header__burger" for="site-nav-toggle">
       <span></span><span></span><span></span>
     </label>
-    <nav aria-label="サイト内メニュー" class="site-nav" id="site-site-nav">
+
+    <nav aria-label="サイト内メニュー" class="site-header__nav">
       <a class="site-btn" href="#menu">メニュー</a>
       <a class="site-btn" href="#news">お知らせ</a>
       <a class="site-btn" href="#calendar">カレンダー</a>
@@ -28,7 +31,7 @@
 <section aria-label="ヒーロー" class="site-hero site-hero--contained site-hero--home">
   <div class="site-hero__bg">
     <div class="site-hero__inner">
-      <span class="site-eyebrow">AZAMINO BAKERY</span>
+      <span class="site-hero__eyebrow">AZAMINO BAKERY</span>
       <h1 class="site-hero__title">毎朝、香りたつ食パンとクロワッサン。</h1>
       <p class="site-hero__lead">国産小麦と自家製酵母。焼きたてを、あなたの毎日に。</p>
       <div class="site-hero__actions">
@@ -45,34 +48,34 @@
     <!-- MENU -->
     <section aria-labelledby="menu-title" class="site-section" id="menu">
       <div class="site-section__header">
-        <span class="site-eyebrow">MENU</span>
-        <h2 class="site-title" id="menu-title">メニュー</h2>
-        <p class="site-lead">看板の食パンとクロワッサンを中心に、焼きたてを毎日ご用意しています。</p>
+        <span class="site-section__eyebrow">MENU</span>
+        <h2 class="site-section__title" id="menu-title">メニュー</h2>
+        <p class="site-section__lead">看板の食パンとクロワッサンを中心に、焼きたてを毎日ご用意しています。</p>
       </div>
 
       <div class="site-grid site-grid--3">
         <!-- item 1 -->
-        <article aria-labelledby="prd-1" class="site-card site-menu-card">
+        <article aria-labelledby="prd-1" class="site-card site-card--menu">
           <img alt="日本酒だねの食パン" src="https://placehold.jp/600x400.png">
           <div class="site-card__body">
-            <h3 class="site-menu-name" id="prd-1">日本酒だねの食パン</h3>
-            <p class="site-menu-meta">1本 680円 / 半分 350円</p>
+            <h3 class="site-card__title" id="prd-1">日本酒だねの食パン</h3>
+            <p class="site-card__meta">1本 680円 / 半分 350円</p>
           </div>
         </article>
         <!-- item 2 -->
-        <article aria-labelledby="prd-2" class="site-card site-menu-card">
+        <article aria-labelledby="prd-2" class="site-card site-card--menu">
           <img alt="クロワッサン" src="https://placehold.jp/600x400.png">
           <div class="site-card__body">
-            <h3 class="site-menu-name" id="prd-2">クロワッサン</h3>
-            <p class="site-menu-meta">1個 280円</p>
+            <h3 class="site-card__title" id="prd-2">クロワッサン</h3>
+            <p class="site-card__meta">1個 280円</p>
           </div>
         </article>
         <!-- item 3 -->
-        <article aria-labelledby="prd-3" class="site-card site-menu-card">
+        <article aria-labelledby="prd-3" class="site-card site-card--menu">
           <img alt="カレーパン" src="https://placehold.jp/600x400.png">
           <div class="site-card__body">
-            <h3 class="site-menu-name" id="prd-3">カレーパン</h3>
-            <p class="site-menu-meta">1個 320円</p>
+            <h3 class="site-card__title" id="prd-3">カレーパン</h3>
+            <p class="site-card__meta">1個 320円</p>
           </div>
         </article>
       </div>
@@ -81,24 +84,24 @@
     <!-- NEWS -->
     <section aria-labelledby="news-title" class="site-section" id="news">
       <div class="site-section__header">
-        <span class="site-eyebrow">NEWS</span>
-        <h2 class="site-title" id="news-title">お知らせ</h2>
-        <p class="site-lead">季節のパンや臨時休業など最新情報をお届けします。</p>
+        <span class="site-section__eyebrow">NEWS</span>
+        <h2 class="site-section__title" id="news-title">お知らせ</h2>
+        <p class="site-section__lead">季節のパンや臨時休業など最新情報をお届けします。</p>
       </div>
 
       <div class="site-news" role="list">
-        <article class="site-news-item" role="listitem">
-          <div class="site-news-date">08/20</div>
+        <article class="site-news__item" role="listitem">
+          <div class="site-news__date">08/20</div>
           <div>
-            <h3 class="site-news-title">山形食パンの販売再開</h3>
-            <p class="site-meta"><span class="site-tag">季節限定</span> 材料入荷に伴い、今週より再開します。</p>
+            <h3 class="site-news__title">山形食パンの販売再開</h3>
+            <p class="site-news__meta"><span class="site-news__tag">季節限定</span> 材料入荷に伴い、今週より再開します。</p>
           </div>
         </article>
-        <article class="site-news-item" role="listitem">
-          <div class="site-news-date">08/16</div>
+        <article class="site-news__item" role="listitem">
+          <div class="site-news__date">08/16</div>
           <div>
-            <h3 class="site-news-title">台風接近に伴う営業時間変更</h3>
-            <p class="site-meta"><span class="site-tag">お知らせ</span> 開店を11時に変更します。</p>
+            <h3 class="site-news__title">台風接近に伴う営業時間変更</h3>
+            <p class="site-news__meta"><span class="site-news__tag">お知らせ</span> 開店を11時に変更します。</p>
           </div>
         </article>
       </div>
@@ -107,9 +110,9 @@
     <!-- CALENDAR -->
     <section aria-labelledby="calendar-title" class="site-section" id="calendar">
       <div class="site-section__header">
-        <span class="site-eyebrow">CALENDAR</span>
-        <h2 class="site-title" id="calendar-title">営業日カレンダー</h2>
-        <p class="site-lead">定休日：月・火・水（仮）。下記の「休」表示が休業日です。</p>
+        <span class="site-section__eyebrow">CALENDAR</span>
+        <h2 class="site-section__title" id="calendar-title">営業日カレンダー</h2>
+        <p class="site-section__lead">定休日：月・火・水（仮）。下記の「休」表示が休業日です。</p>
       </div>
 
       <div class="site-card site-card--pad site-calendar" id="dynamic-calendar">
@@ -121,10 +124,22 @@
           </thead>
           <tbody>
             <tr>
-              <td>1</td><td class="site-closed">休</td><td class="site-closed">休</td><td class="site-closed">休</td><td>4</td><td>5</td><td class="site-today">6</td>
+              <td class="site-calendar__cell">1</td>
+              <td class="site-calendar__cell site-calendar__cell--closed">休</td>
+              <td class="site-calendar__cell site-calendar__cell--closed">休</td>
+              <td class="site-calendar__cell site-calendar__cell--closed">休</td>
+              <td class="site-calendar__cell">4</td>
+              <td class="site-calendar__cell">5</td>
+              <td class="site-calendar__cell site-calendar__cell--today">6</td>
             </tr>
             <tr>
-              <td>7</td><td class="site-closed">休</td><td class="site-closed">休</td><td class="site-closed">休</td><td>11</td><td>12</td><td>13</td>
+              <td class="site-calendar__cell">7</td>
+              <td class="site-calendar__cell site-calendar__cell--closed">休</td>
+              <td class="site-calendar__cell site-calendar__cell--closed">休</td>
+              <td class="site-calendar__cell site-calendar__cell--closed">休</td>
+              <td class="site-calendar__cell">11</td>
+              <td class="site-calendar__cell">12</td>
+              <td class="site-calendar__cell">13</td>
             </tr>
           </tbody>
         </table>
@@ -132,16 +147,16 @@
     </section>
 
     <!-- ACCESS -->
-    <section aria-labelledby="access-title" class="site-section" id="access">
+    <section aria-labelledby="access-title" class="site-section site-access" id="access">
       <div class="site-section__header">
-        <span class="site-eyebrow">ACCESS</span>
-        <h2 class="site-title" id="access-title">アクセス</h2>
-        <p class="site-lead">田園都市線 あざみ野駅から徒歩圏。駐輪スペースあり。</p>
+        <span class="site-section__eyebrow">ACCESS</span>
+        <h2 class="site-section__title" id="access-title">アクセス</h2>
+        <p class="site-section__lead">田園都市線 あざみ野駅から徒歩圏。駐輪スペースあり。</p>
       </div>
 
       <div class="site-grid site-grid--2">
         <div class="site-card site-card--pad">
-          <ul class="site-access-list">
+          <ul class="site-access__list">
             <li><strong>住所</strong><span>横浜市青葉区〇〇-〇〇-〇〇</span></li>
             <li><strong>電話</strong><span>045-xxxx-xxxx</span></li>
             <li><strong>時間</strong><span>9:00–18:00（売切次第終了）</span></li>
@@ -151,7 +166,7 @@
           <a class="site-btn site-btn--primary" href="https://maps.google.com" rel="noopener" target="_blank">Google Map を開く</a>
         </div>
         <div class="site-map site-card">
-          <iframe allowfullscreen="" loading="lazy" src="https://www.google.com/maps?output=embed&amp;q=Azamino%20Station"></iframe>
+          <iframe allowfullscreen loading="lazy" src="https://www.google.com/maps?output=embed&amp;q=Azamino%20Station"></iframe>
         </div>
       </div>
     </section>
@@ -159,16 +174,16 @@
     <!-- CONTACT -->
     <section aria-labelledby="contact-title" class="site-section" id="contact">
       <div class="site-section__header">
-        <span class="site-eyebrow">CONTACT</span>
-        <h2 class="site-title" id="contact-title">お問い合わせ</h2>
-        <p class="site-lead">ご予約・取り置き・取材依頼など、こちらからどうぞ。</p>
+        <span class="site-section__eyebrow">CONTACT</span>
+        <h2 class="site-section__title" id="contact-title">お問い合わせ</h2>
+        <p class="site-section__lead">ご予約・取り置き・取材依頼など、こちらからどうぞ。</p>
       </div>
 
       <div class="site-contact">
         <div class="site-card site-card--pad">
           <p class="site-meta">電話：045-xxxx-xxxx（9:00–18:00） / メール：info@example.com</p>
         </div>
-        <div class="site-form-embed site-card">
+        <div class="site-contact__form site-card">
           <iframe title="お問い合わせフォーム" src="https://docs.google.com/forms/d/e/1FAIpQLSf-demo/viewform?embedded=true">読み込んでいます…</iframe>
         </div>
       </div>
@@ -176,30 +191,30 @@
   </div>
 
   <!-- ===================== ASIDE（PC時 右側） ===================== -->
-  <aside aria-label="サイド情報" class="site-aside">
+  <aside aria-label="サイド情報" class="site-layout__aside">
     <div class="site-card site-card--pad">
-      <h3 class="site-menu-name site-mt-0">お知らせ（最新3件）</h3>
+      <h3 class="site-card__title site-mt-0">お知らせ（最新3件）</h3>
       <div class="site-news" role="list">
-        <article class="site-news-item" role="listitem">
-          <div class="site-news-date">08/20</div>
+        <article class="site-news__item" role="listitem">
+          <div class="site-news__date">08/20</div>
           <div><strong>山形食パンの販売再開</strong></div>
         </article>
-        <article class="site-news-item" role="listitem">
-          <div class="site-news-date">08/16</div>
+        <article class="site-news__item" role="listitem">
+          <div class="site-news__date">08/16</div>
           <div><strong>台風接近に伴う営業時間変更</strong></div>
         </article>
       </div>
     </div>
 
     <div class="site-card site-card--pad">
-      <h3 class="site-menu-name site-mt-0">アクセス</h3>
+      <h3 class="site-card__title site-mt-0">アクセス</h3>
       <div class="site-map site-mt-2">
-        <iframe allowfullscreen="" loading="lazy" src="https://www.google.com/maps?output=embed&amp;q=Azamino%20Station"></iframe>
+        <iframe allowfullscreen loading="lazy" src="https://www.google.com/maps?output=embed&amp;q=Azamino%20Station"></iframe>
       </div>
     </div>
 
     <div class="site-card site-card--pad">
-      <h3 class="site-menu-name site-mt-0">問い合わせ</h3>
+      <h3 class="site-card__title site-mt-0">問い合わせ</h3>
       <p class="site-meta">取り置きのご連絡はお電話が確実です。</p>
       <a class="site-btn site-btn--primary" href="#contact">フォームを開く</a>
     </div>
