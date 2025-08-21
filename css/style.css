@@ -260,7 +260,8 @@ body {
 
 .site-card--menu img {
     width: 100%;
-    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
     display: block;
     border-top-left-radius: var(--radius);
     border-top-right-radius: var(--radius);
@@ -437,8 +438,13 @@ body {
 }
 
 .site-hero--home {
-    --hero-image: url('../images/hero1-1280.jpg');
+    /* Mobile-first: 小さい画像 + 既定高さ */
+    --hero-image: url('../images/hero1-640.jpg');
+    --hero-h: 60vh;
     --hero-h-desktop: 1000px;
+}
+@media (min-width:740px){
+    .site-hero--home { --hero-image: url('../images/hero1-1280.jpg'); }
 }
 
 /* full-bleed variant */
@@ -455,7 +461,7 @@ body {
 
 @media (min-width:1024px) {
     .site-hero--full .site-hero__bg {
-        min-block-size: 70vh;
+        min-block-size: var(--hero-h, 70vh);
     }
 }
 
@@ -469,6 +475,10 @@ body {
     box-shadow: var(--shadow);
     min-block-size: var(--hero-h, 60vh);
 }
+@media (min-width:1024px){
+    .site-hero--home { --hero-h: var(--hero-h-desktop, 1000px); }
+}
+
 
 .site-hero__bg::after {
     content: "";
@@ -517,6 +527,25 @@ body {
     flex-wrap: wrap;
 }
 
+
+/* ========== Desktop 2-column layout (main / aside) ========== */
+@media (min-width:1024px){
+    .site-layout > div{
+        display: grid;
+        grid-template-columns: 2fr 1fr; /* 左メイン / 右サブ */
+        gap: var(--space-8);
+        align-items: start;
+    }
+    /* 左列（メイン） */
+    #menu{ grid-column: 1; }
+    /* 右列（サブ） */
+    #news, #calendar, #access, #contact{
+        grid-column: 2;
+        border-top: 0;
+        padding-top: 0;
+    }
+}
+
 /* ========== Phone tweaks ========== */
 @media (max-width: 599px) {
     .site-section {
@@ -536,4 +565,18 @@ body {
     .site-calendar td {
         padding: .5rem;
     }
+}
+
+/* ==== TEMP: 2カラム無効化（単一カラムに戻す） ==== */
+@media (min-width:1024px){
+  .site-layout > div{ display: block; }
+
+  /* 先のパッチで付けた右カラム用指定をリセット */
+  #menu{ grid-column: auto; }
+  #news, #calendar, #access, #contact{
+    grid-column: auto;
+    /* 右カラム用に消していた見出し線・余白を元に戻す */
+    border-top: 1px solid var(--line);
+    padding-top: clamp(28px, 5vw, 64px);
+  }
 }
