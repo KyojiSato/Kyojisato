@@ -109,11 +109,6 @@ body {
 .site-card__actions { margin-top: var(--space-5); display: flex; gap: .5rem; justify-content: flex-end; }
 
 /* === Menu cards: hover/focus animation (news と同等) === */
-.site-card--menu{
-  /* 画像の拡大は角からはみ出すのでカード側でクリップ */
-  overflow: hidden; /* 古めブラウザ互換 */
-  /* @supports (overflow: clip){ overflow: clip; } でも可 */
-}
 
 @media (hover:hover){ /* タッチ端末では無効化 */
   .site-card--menu{
