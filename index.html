@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Azamino Bakery – Unified Section System</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
   <header class="site-header">
     <div class="site-container site-header__inner">
@@ -20,11 +18,11 @@
       </label>
 
       <nav aria-label="サイト内メニュー" class="site-header__nav">
-        <a class="site-btn site-btn--primary" href="#menu">メニュー</a>
+        <a class="site-btn" href="#menu">メニュー</a>
         <a class="site-btn" href="#news">お知らせ</a>
         <a class="site-btn" href="#calendar">カレンダー</a>
         <a class="site-btn" href="#access">アクセス</a>
-        <a class="site-btn" href="#contact">問い合わせ</a>
+        <a class="site-btn site-btn--primary" href="#contact">問い合わせ</a>
       </nav>
     </div>
   </header>
@@ -45,107 +43,79 @@
   </section>
 
   <main class="site-container site-layout">
-    <!-- ===================== MAIN ===================== -->
     <div>
       <!-- MENU -->
-      <section aria-labelledby="menu-title" class="site-section" id="menu">
+      <section id="menu" class="site-section" aria-labelledby="menu-title">
         <div class="site-section__header">
           <span class="site-section__eyebrow">MENU</span>
-          <h2 class="site-section__title" id="menu-title">メニュー</h2>
+          <h2 id="menu-title" class="site-section__title">メニュー</h2>
           <p class="site-section__lead">看板の食パンとクロワッサンを中心に、焼きたてを毎日ご用意しています。</p>
         </div>
 
         <div class="site-grid site-grid--3">
-          <!-- item 1 -->
-          <article aria-labelledby="prd-1" class="site-card site-card--menu">
-            <img alt="日本酒だねの食パン" src="https://placehold.jp/600x400.png" loading="lazy" decoding="async">
+          <article class="site-card site-card--menu" aria-labelledby="prd-1">
+            <img src="https://placehold.jp/600x400.png" alt="日本酒だねの食パン" />
             <div class="site-card__body">
-              <h3 class="site-card__title" id="prd-1">日本酒だねの食パン</h3>
+              <h3 id="prd-1" class="site-card__title">日本酒だねの食パン</h3>
               <p class="site-card__meta">1本 680円 / 半分 350円</p>
-              <div class="site-card__actions">
-                <!-- <a class="site-btn" href="menu/shokupan.html" aria-label="日本酒だねの食パンの詳細へ">詳しく見る</a> -->
-                <a class="site-btn" href="#" aria-label="日本酒だねの食パンの詳細へ">詳しく見る</a>
-              </div>
             </div>
           </article>
-          <!-- item 2 -->
-          <article aria-labelledby="prd-2" class="site-card site-card--menu">
-            <img alt="クロワッサン" src="https://placehold.jp/600x400.png" loading="lazy" decoding="async">
+          <article class="site-card site-card--menu" aria-labelledby="prd-2">
+            <img src="https://placehold.jp/600x400.png" alt="クロワッサン" />
             <div class="site-card__body">
-              <h3 class="site-card__title" id="prd-2">クロワッサン</h3>
+              <h3 id="prd-2" class="site-card__title">クロワッサン</h3>
               <p class="site-card__meta">1個 280円</p>
-              <div class="site-card__actions">
-                <!-- <a class="site-btn" href="menu/croissant.html" aria-label="クロワッサンの詳細へ">詳しく見る</a> -->
-                <a class="site-btn" href="#" aria-label="クロワッサンの詳細へ">詳しく見る</a>
-              </div>
             </div>
           </article>
-          <!-- item 3 -->
-          <article aria-labelledby="prd-3" class="site-card site-card--menu">
-            <img alt="カレーパン" src="https://placehold.jp/600x400.png" loading="lazy" decoding="async">
+          <article class="site-card site-card--menu" aria-labelledby="prd-3">
+            <img src="https://placehold.jp/600x400.png" alt="カレーパン" />
             <div class="site-card__body">
-              <h3 class="site-card__title" id="prd-3">カレーパン</h3>
+              <h3 id="prd-3" class="site-card__title">カレーパン</h3>
               <p class="site-card__meta">1個 320円</p>
-              <div class="site-card__actions">
-                <!-- <a class="site-btn" href="menu/curry-pan.html" aria-label="カレーパンの詳細へ">詳しく見る</a> -->
-                <a class="site-btn" href="#" aria-label="カレーパンの詳細へ">詳しく見る</a>
-              </div>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- NEWS -->
-      <section aria-labelledby="news-title" class="site-section" id="news">
+      <!-- NEWS (cards) -->
+      <section id="news" class="site-section" aria-labelledby="news-title">
         <div class="site-section__header">
           <span class="site-section__eyebrow">NEWS</span>
-          <h2 class="site-section__title" id="news-title">お知らせ</h2>
+          <h2 id="news-title" class="site-section__title">お知らせ</h2>
           <p class="site-section__lead">季節のパンや臨時休業など最新情報をお届けします。</p>
         </div>
+
         <div class="site-news site-news--cards" role="list">
           <article class="site-news__item" role="listitem">
             <div class="site-news__head">
               <time class="site-chip site-chip--date" datetime="2025-08-20">2025/08/20</time>
               <span class="site-chip">季節限定</span>
-              <span class="site-chip site-chip--new">NEW</span>
             </div>
             <h3 class="site-news__title">山形食パンの販売再開</h3>
-            <p class="site-news__meta">材料入荷に伴い、今週より再開します。数量限定のためお早めに。</p>
+            <p class="site-news__meta">材料入荷に伴い、今週より再開します。</p>
             <div class="site-news__footer">
-              <a class="site-news__more" href="/news/2025-08-20.html">詳細を見る →</a>
+              <a class="site-news__more" href="#">詳細を見る →</a>
             </div>
           </article>
-
           <article class="site-news__item" role="listitem">
             <div class="site-news__head">
               <time class="site-chip site-chip--date" datetime="2025-08-16">2025/08/16</time>
               <span class="site-chip">お知らせ</span>
             </div>
             <h3 class="site-news__title">台風接近に伴う営業時間変更</h3>
-            <p class="site-news__meta">安全第一のため、開店を11時に変更します。状況により再度の変更あり。</p>
+            <p class="site-news__meta">開店を11時に変更します。</p>
             <div class="site-news__footer">
-              <a class="site-news__more" href="/news/2025-08-16.html">詳細を見る →</a>
-            </div>
-
-          </article>
-          <article class="site-news__item" role="listitem">
-            <div class="site-news__head">
-              <time class="site-chip site-chip--date" datetime="2025-08-10">2025/08/10</time>
-              <span class="site-chip">お知らせ</span>
-            </div>
-            <h3 class="site-news__title">ホームページを一新しました。</h3>
-            <p class="site-news__meta">知人のデザインハウスさんにお願いしていましたページに差し替えました。さすがです。</p>
-            <div class="site-news__footer">
-              <a class="site-news__more" href="/news/2025-08-16.html">詳細を見る →</a>
+              <a class="site-news__more" href="#">詳細を見る →</a>
             </div>
           </article>
         </div>
       </section>
+
       <!-- CALENDAR -->
-      <section aria-labelledby="calendar-title" class="site-section" id="calendar">
+      <section id="calendar" class="site-section" aria-labelledby="calendar-title">
         <div class="site-section__header">
           <span class="site-section__eyebrow">CALENDAR</span>
-          <h2 class="site-section__title" id="calendar-title">営業日カレンダー</h2>
+          <h2 id="calendar-title" class="site-section__title">営業日カレンダー</h2>
           <p class="site-section__lead">定休日：月・火・水（仮）。下記の「休」表示が休業日です。</p>
         </div>
 
@@ -153,13 +123,7 @@
           <table aria-label="営業日カレンダー（例）">
             <thead>
               <tr>
-                <th>日</th>
-                <th>月</th>
-                <th>火</th>
-                <th>水</th>
-                <th>木</th>
-                <th>金</th>
-                <th>土</th>
+                <th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
               </tr>
             </thead>
             <tbody>
@@ -185,58 +149,67 @@
           </table>
         </div>
       </section>
-
-      <!-- ACCESS -->
-      <section aria-labelledby="access-title" class="site-section site-access" id="access">
-        <div class="site-section__header">
-          <span class="site-section__eyebrow">ACCESS</span>
-          <h2 class="site-section__title" id="access-title">アクセス</h2>
-          <p class="site-section__lead">田園都市線 あざみ野駅から徒歩圏。駐輪スペースあり。</p>
-        </div>
-
-        <div class="site-grid site-grid--2">
-          <div class="site-card site-card--pad">
-            <ul class="site-access__list">
-              <li><strong>住所</strong><span>横浜市青葉区〇〇-〇〇-〇〇</span></li>
-              <li><strong>電話</strong><span>045-xxxx-xxxx</span></li>
-              <li><strong>時間</strong><span>9:00–18:00（売切次第終了）</span></li>
-              <li><strong>休業</strong><span>月・火・水 + 不定休</span></li>
-            </ul>
-            <div class="site-divider"></div>
-            <a class="site-btn site-btn--primary" href="https://maps.google.com" rel="noopener" target="_blank">Google
-              Map を開く</a>
-          </div>
-          <div class="site-map site-card">
-            <iframe allowfullscreen loading="lazy"
-              src="https://www.google.com/maps?output=embed&amp;q=Azamino%20Station"></iframe>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section aria-labelledby="contact-title" class="site-section" id="contact">
-        <div class="site-section__header">
-          <span class="site-section__eyebrow">CONTACT</span>
-          <h2 class="site-section__title" id="contact-title">お問い合わせ</h2>
-          <p class="site-section__lead">ご予約・取り置き・取材依頼など、こちらからどうぞ。</p>
-        </div>
-
-        <div class="site-contact">
-          <div class="site-card site-card--pad">
-            <p class="site-meta">電話：045-xxxx-xxxx（9:00–18:00） / メール：info@example.com</p>
-          </div>
-          <div class="site-contact__form site-card">
-            <iframe title="お問い合わせフォーム"
-              src="https://docs.google.com/forms/d/e/1FAIpQLSf-demo/viewform?embedded=true">読み込んでいます…</iframe>
-          </div>
-        </div>
-      </section>
     </div>
   </main>
+
+  <!-- ACCESS & CONTACT 2UP -->
+  <div class="site-container site-2up">
+    <!-- ACCESS -->
+    <section id="access" class="site-section site-section--tile" aria-labelledby="access-title">
+      <div class="site-section__header">
+        <span class="site-section__eyebrow">ACCESS</span>
+        <h2 id="access-title" class="site-section__title">アクセス</h2>
+        <p class="site-section__lead">田園都市線 あざみ野駅から徒歩圏。駐輪スペースあり。</p>
+      </div>
+
+      <div class="site-card site-card--pad">
+        <ul class="site-access__list">
+          <li><strong>住所</strong><span>横浜市青葉区〇〇-〇〇-〇〇</span></li>
+          <li><strong>電話</strong><span><a href="tel:045-xxxx-xxxx">045-xxxx-xxxx</a></span></li>
+          <li><strong>時間</strong><span>9:00–18:00（売切次第終了）</span></li>
+          <li><strong>休業</strong><span>月・火・水 + 不定休</span></li>
+        </ul>
+        <div class="site-divider"></div>
+        <a class="site-btn site-btn--primary" href="https://maps.google.com?q=Azamino%20Station" target="_blank" rel="noopener">
+          Google Map を開く
+        </a>
+      </div>
+
+      <!-- Lazy map -->
+      <details class="site-map__details site-card js-lazy-iframe">
+        <summary class="site-map__summary">このページ内で地図を表示</summary>
+        <div class="site-map__embed" data-src="https://www.google.com/maps?output=embed&amp;q=Azamino%20Station"></div>
+      </details>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="site-section site-section--tile" aria-labelledby="contact-title">
+      <div class="site-section__header">
+        <span class="site-section__eyebrow">CONTACT</span>
+        <h2 id="contact-title" class="site-section__title">お問い合わせ</h2>
+        <p class="site-section__lead">取り置き・取材依頼などはこちらから。</p>
+      </div>
+
+      <div class="site-card site-card--pad">
+        <p class="site-meta">電話：<a href="tel:045-xxxx-xxxx">045-xxxx-xxxx</a>（9:00–18:00） /
+          メール：<a href="mailto:info@example.com">info@example.com</a></p>
+        <a class="site-btn site-btn--primary" href="https://docs.google.com/forms/d/e/1FAIpQLSf-demo/viewform"
+          target="_blank" rel="noopener">フォームを開く</a>
+      </div>
+
+      <!-- Lazy contact form -->
+      <details class="site-contact__details site-card js-lazy-iframe">
+        <summary class="site-contact__summary">このページ内でフォームを表示</summary>
+        <div class="site-contact__form" data-src="https://docs.google.com/forms/d/e/1FAIpQLSf-demo/viewform?embedded=true"></div>
+      </details>
+    </section>
+  </div>
 
   <footer class="site-container site-footer">
     <small>© 2025 Azamino Bakery</small>
   </footer>
-</body>
 
+  <!-- JS: generalized from user's latest snippet to handle map & form -->
+  <script src="js/app.js"></script>
+</body>
 </html>
