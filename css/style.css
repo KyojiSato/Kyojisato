@@ -108,6 +108,36 @@ body {
 .site-card__meta { color: var(--muted); font-size: .9rem; }
 .site-card__actions { margin-top: var(--space-5); display: flex; gap: .5rem; justify-content: flex-end; }
 
+/* === Menu cards: hover/focus animation (news と同等) === */
+.site-card--menu{
+  /* 画像の拡大は角からはみ出すのでカード側でクリップ */
+  overflow: hidden; /* 古めブラウザ互換 */
+  /* @supports (overflow: clip){ overflow: clip; } でも可 */
+}
+
+@media (hover:hover){ /* タッチ端末では無効化 */
+  .site-card--menu{
+    transition: transform .2s ease, box-shadow .2s ease;
+    will-change: transform;
+  }
+  .site-card--menu:hover,
+  .site-card--menu:focus-within{   /* キーボード操作にも反応 */
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+  }
+
+  /* 画像もわずかにズーム */
+  .site-card--menu img{
+    transition: transform .35s ease;
+  }
+  .site-card--menu:hover img,
+  .site-card--menu:focus-within img{
+    transform: scale(1.02);
+  }
+}
+
+
+
 /* ========== News ========== */
 .site-news { display: grid; gap: var(--space-3); }
 .site-news__item { display: grid; grid-template-columns: 7.5ch 1fr; gap: var(--space-4); padding: var(--space-4); border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
