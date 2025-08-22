@@ -568,6 +568,7 @@ body {
 }
 
 /* ==== TEMP: 2カラム無効化（単一カラムに戻す） ==== */
+/* 2カラムにしたいときは以下を削除する */
 @media (min-width:1024px){
   .site-layout > div{ display: block; }
 
