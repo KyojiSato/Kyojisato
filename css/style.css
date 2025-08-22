@@ -183,3 +183,45 @@ body {
   .site-news__item { grid-template-columns: 6ch 1fr; padding: var(--space-4); }
   .site-calendar th, .site-calendar td { padding: .5rem; }
 }
+
+/* ===== Modern News ===== */
+.site-chip{
+  display:inline-flex;align-items:center;gap:.4em;
+  padding:.2em .6em;border-radius:999px;font-size:.78rem;
+  border:1px solid var(--line);
+  background:color-mix(in oklab,#fff 88%,var(--highlight) 12%);
+}
+.site-chip--date{
+  background:color-mix(in oklab,#fff 92%,var(--main-color) 8%);
+  color:color-mix(in oklab,var(--main-color) 85%,#000 15%);
+}
+.site-chip--new{
+  background:color-mix(in oklab,var(--accent) 22%,#fff 78%);
+  color:color-mix(in oklab,var(--accent) 75%,#000 25%);
+  border-color:color-mix(in oklab,var(--accent) 40%,#fff 60%);
+}
+
+/* カード型ニュース */
+.site-news--cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:var(--space-6);
+}
+.site-news--cards .site-news__item{
+  display:flex;flex-direction:column;gap:.5rem;
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:#fff;padding:var(--space-5);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.site-news--cards .site-news__item:hover{
+  transform:translateY(-2px);box-shadow:var(--shadow);
+}
+.site-news__head{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
+.site-news__title{margin:.25rem 0 0;font-weight:700;font-size:1rem;line-height:1.5;}
+.site-news__meta{color:var(--muted);font-size:.9rem;}
+.site-news__footer{margin-top:.25rem;}
+.site-news__more{font-size:.9rem;text-underline-offset:.2em;}
+
+/* 一列の読み物モード（任意） */
+.site-news--narrow{max-width:68ch;margin-inline:auto;}
+
