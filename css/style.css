@@ -131,8 +131,6 @@ body {
   }
 }
 
-
-
 /* ========== News ========== */
 .site-news { display: grid; gap: var(--space-3); }
 .site-news__item { display: grid; grid-template-columns: 7.5ch 1fr; gap: var(--space-4); padding: var(--space-4); border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
@@ -250,3 +248,65 @@ body {
 /* 一列の読み物モード（任意） */
 .site-news--narrow{max-width:68ch;margin-inline:auto;}
 
+/* === Calendar compact v2 (HTML変更なし・現行tdクラス対応) === */
+.site-card.site-calendar { display:block; } /* 念のための復旧 */
+
+.site-calendar{
+  max-width: 720px;     /* カレンダー自体の最大幅 */
+  margin-inline: auto;  /* 中央寄せ */
+  overflow-x: visible;  /* 旧 overflow-x:auto の横スクロールを無効化 */
+}
+
+.site-calendar table{
+  width: 100%;
+  table-layout: fixed;          /* 列幅を均等化 */
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;             /* 角丸生かす */
+}
+
+.site-calendar thead th{
+  background: color-mix(in oklab, #fff 92%, var(--base) 8%);
+  font-weight: 700;
+  padding: .6rem 0;
+  position: sticky; top: 0; z-index: 1;
+}
+
+.site-calendar th,
+.site-calendar td{
+  text-align: center;
+  padding: .5rem;               /* 既存 .65rem より詰める */
+}
+
+/* HTMLを触らず“正方形っぽく”統一（高さのみ固定） */
+:root { --cal-cell: 64px; }     /* お好みで 56〜72px */
+@media (min-width:560px){
+  .site-calendar td{ height: var(--cal-cell); }
+}
+
+/* 既存クラスに合わせて“今日/休み”の見栄えを改善 */
+.site-calendar__cell--today{
+  outline: 2px solid color-mix(in oklab, var(--highlight) 35%, #000 0%);
+  outline-offset: -2px;
+  border-radius: 8px;
+}
+
+.site-calendar__cell--closed{
+  color: #b65; font-weight: 700;
+  background: color-mix(in oklab, #fff 92%, var(--accent) 8%);
+  border-radius: 8px;
+}
+
+/* 週末トーン（任意） */
+.site-calendar tbody tr td:nth-child(1),
+.site-calendar tbody tr td:nth-child(7){
+  color: color-mix(in oklab, var(--main-color) 60%, #000 40%);
+}
+
+/* モバイルは少し背を高くしてタップしやすく */
+@media (max-width:599px){
+  :root { --cal-cell: 72px; }
+}
