@@ -1,0 +1,1 @@
+同じテイストの統一UIを追加するための index.html と css/ab-ui.css です。既存の style.css, script.js は変更不要です。
