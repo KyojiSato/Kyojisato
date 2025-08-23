@@ -247,6 +247,7 @@ body {
 }
 
 /* ========== Card ========== */
+/* ========== Menu ========== */
 .site-card {
     background: #fff;
     border: 1px solid var(--line);
@@ -281,7 +282,11 @@ body {
     color: var(--muted);
     font-size: .9rem;
 }
-
+.site-card__action {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
 /* ========== News ========== */
 .site-news {
     display: grid;
