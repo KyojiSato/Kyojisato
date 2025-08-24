@@ -1,1 +1,0 @@
-<the full JS from the assistant's previous message>
