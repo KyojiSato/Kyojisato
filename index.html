@@ -148,7 +148,7 @@
         </div>
 
         <div class="site-card site-card--pad site-calendar" id="dynamic-calendar">
-          <table aria-label="営業日カレンダー（例）">
+          <table aria-label="営業日カレンダー（例）"
             <thead>
               <tr>
                 <th>日</th>
@@ -166,23 +166,28 @@
                 <td class="site-calendar__cell site-calendar__cell--closed">休</td>
                 <td class="site-calendar__cell site-calendar__cell--closed">休</td>
                 <td class="site-calendar__cell site-calendar__cell--closed">休</td>
-                <td class="site-calendar__cell">4</td>
                 <td class="site-calendar__cell">5</td>
-                <td class="site-calendar__cell site-calendar__cell--today">6</td>
+                <td class="site-calendar__cell">6</td>
+                <td class="site-calendar__cell site-calendar__cell--today">7</td>
               </tr>
               <tr>
-                <td class="site-calendar__cell">7</td>
+                <td class="site-calendar__cell">8</td>
                 <td class="site-calendar__cell site-calendar__cell--closed">休</td>
                 <td class="site-calendar__cell site-calendar__cell--closed">休</td>
                 <td class="site-calendar__cell site-calendar__cell--closed">休</td>
-                <td class="site-calendar__cell">11</td>
                 <td class="site-calendar__cell">12</td>
                 <td class="site-calendar__cell">13</td>
+                <td class="site-calendar__cell">14</td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
+      <!-- <div class="calendar-legend" aria-hidden="true">
+        <span class="legend-badge legend-open">営業日</span>
+        <span class="legend-badge legend-closed">休業日</span>
+        <span class="legend-badge legend-today">本日</span>
+      </div> -->
     </div>
   </main>
 
@@ -260,7 +265,8 @@
 
   <!-- JS: generalized from user's latest snippet to handle map & form -->
   <script src="js/app.js"></script>
-  <script src="js/script.js"></script>
+  <!-- <script src="js/script.js"></script> -->
+  <!-- <script src="calendar-render.js"></script> -->
 </body>
 
 </html>
