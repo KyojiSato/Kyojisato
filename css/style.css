@@ -37,6 +37,7 @@ body {
   color: var(--main-color);
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
+  padding-top: 80px;   /* site-header__innerと同じ値*/
 }
 
 /* unified container */
@@ -48,7 +49,7 @@ body {
 /* ========== Header (Block: site-header) ========== */
 /* ===== Header polish (共通の見た目底上げ) ===== */
 .site-header {
-  position: sticky;       /* 固定しないなら 'static' に変更可 */
+  position: fixed;       /* 固定しないなら 'static' に変更可 */
   top: 0;
   z-index: 100;
   background: color-mix(in oklab, #fff 80%, var(--base) 20%);
@@ -57,8 +58,12 @@ body {
 }
 
 .site-header__inner {
-  min-height: 64px;       /* ヘッダー高さの基準 */
-  gap: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  /* 左ブランド / 右ナビ */
+  max-width: var(--max-w, 1200px);
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .site-header__brand a {
