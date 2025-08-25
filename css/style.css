@@ -46,90 +46,155 @@ body {
 }
 
 /* ========== Header (Block: site-header) ========== */
+/* ===== Header polish (共通の見た目底上げ) ===== */
 .site-header {
-  padding-block: .75rem;
-  border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(6px);
-  background: color-mix(in oklab, var(--main-bg) 84%, #fff 16%);
-  position: sticky;
+  position: sticky;       /* 固定しないなら 'static' に変更可 */
   top: 0;
-  z-index: 10;
+  z-index: 100;
+  background: color-mix(in oklab, #fff 80%, var(--base) 20%);
+  backdrop-filter: saturate(120%) blur(6px);
+  border-bottom: 1px solid var(--line);
 }
 
 .site-header__inner {
-  display: flex;
-  justify-content: space-between;
+  min-height: 64px;       /* ヘッダー高さの基準 */
+  gap: 12px;
+}
+
+.site-header__brand a {
+  display: inline-block;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.2;
+  letter-spacing: .02em;
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+/* PCはメニュー常時表示、SPはトグルで開閉（既存と整合） */
+.site-header__nav {
+  display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  gap: 8px;
 }
 
-.site-header__burger {
-  display: none;
+/* ボタンの間隔をやや広げて押しやすく */
+.site-header__nav .site-btn {
+  padding-inline: .9rem;
+  line-height: 2.2;
 }
 
-.site-header__burger span {
-  display: block;
-  height: 2px;
-  margin: 4px 10px;
-  background: var(--main-color);
-  border-radius: 2px;
+/* フォーカス見栄え（キーボード操作の見失い防止） */
+.site-header a:focus-visible,
+.site-header__burger:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--accent) 50%, #fff 50%);
+  outline-offset: 2px;
+  border-radius: 10px;
 }
 
-.site-header__toggle {
-  display: none;
+/* スクロール時に本文が隠れないよう上部余白（固定運用時のみ） */
+.site-main { 
+  scroll-margin-top: 80px;          /* #anchorへのジャンプ補正 */
+}
+body:has(.site-header[position="sticky"]) .site-main { 
+  /* UA未対応もあるので必要なら個別に上余白を調整 */
 }
 
-/* Mobile nav (CSS-only) */
+/* ===== モバイル（～860px） ===== */
 @media (max-width: 860px) {
-  .site-header__inner {
-    position: relative;
-  }
-
   .site-header__burger {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 40px; height: 40px;
     cursor: pointer;
     border: 1px solid var(--line);
     border-radius: 999px;
     background: #fff;
   }
-
+  .site-header__burger span {
+    display: block;
+    height: 2px;
+    margin: 4px 10px;
+    background: var(--main-color);
+    border-radius: 2px;
+  }
   .site-header__nav {
     display: none;
     position: absolute;
+    right: 16px;
     top: calc(100% + 8px);
-    right: 0;
     min-width: 240px;
     background: #fff;
     border: 1px solid var(--line);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     padding: 8px;
-    z-index: 20;
   }
-
-  .site-header__toggle:checked~.site-header__nav {
-    display: grid;
-    gap: 8px;
-  }
-
-  .site-header__nav .site-btn {
-    display: block;
-    width: 100%;
-    text-align: left;
-    border-radius: 10px;
-  }
+  .site-header__toggle:checked ~ .site-header__nav { display: grid; gap: 8px; }
+  .site-header__nav .site-btn { display: block; width: 100%; text-align: left; }
+}
+/* === PCの並び直し（追加） === */
+.site-header__inner{
+  display: flex;           /* ← これで横並び */
+  align-items: center;
 }
 
-@media (min-width: 861px) {
-  .site-header__nav {
-    display: inline-flex;
-    gap: 8px;
-  }
+.site-header__nav{
+  margin-left: auto;       /* ← 右端へ押し出す */
 }
+
+.site-header__burger{
+  display: none;           /* ← PCではハンバーガー非表示 */
+}
+
+/* === モバイル時の微調整（既存に追加/補強） === */
+@media (max-width: 860px){
+  .site-header__inner{ position: relative; }  /* 絶対配置ナビの基準に */
+  .site-header__nav{ margin-left: 0; }        /* 右寄せ解除（上でabsoluteになる） */
+  .site-header__burger{ display: inline-flex; }
+}
+
+/* ===== 見た目の微整え（余白・読みやすさ） ===== */
+/* セクションの上下余白を統一（強すぎたら値を少し下げる） */
+section { 
+  margin-block: clamp(24px, 6vw, 56px);
+}
+
+/* チェックボックスを視覚的に非表示（どの幅でも常に適用） */
+.site-header .site-header__toggle{
+  position: absolute;
+  left: -9999px;   /* 画面外へ退避 */
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;  /* 操作はlabel経由のみ */
+}
+
+/* PCではバーガーを隠し、SPでだけ出す（既存に合わせて） */
+@media (min-width: 861px){
+  .site-header__burger{ display: none; }
+}
+
+
+/* カードの本文余白をやや広げて詰まり感を軽減 */
+.site-card__body { 
+  padding: clamp(12px, 2.5vw, 20px);
+}
+
+/* リンクのホバーを控えめ強調（全体の一体感を維持） */
+a:hover { 
+  text-decoration-thickness: 2px;
+  text-underline-offset: .18em;
+}
+
+
+
 
 /* ========== Layout & section ========== */
 .site-layout {
@@ -462,6 +527,26 @@ body {
 .site-calendar tbody tr td:nth-child(1),
 .site-calendar tbody tr td:nth-child(7) {
   color: color-mix(in oklab, var(--main-color) 60%, #000 40%);
+}
+
+/* ==== Calendar: コンパクト表示＆中央寄せ ==== */
+/* PCはカード幅を絞って中央寄せ（モバイルは従来どおり横スクロール可） */
+@media (min-width: 860px) {
+  .site-calendar {
+    max-width: clamp(420px, 52vw, 560px);  /* 好みで 500〜600px 程度に */
+    margin-inline: auto;                   /* 中央寄せ */
+  }
+}
+
+/* セルの詰まりを少し強める（任意：数値はお好みで微調整） */
+.site-calendar th,
+.site-calendar td {
+  padding: .5rem; /* 例: 既存 .65rem → .5rem */
+}
+
+/* 列幅のブレを抑える（テキスト改行でも安定） */
+.site-calendar table {
+  table-layout: fixed;
 }
 
 @media (max-width:599px) {
@@ -838,26 +923,6 @@ body {
 }
 .site-breadcrumb a:hover {
   border-bottom-style: solid;
-}
-
-/* ==== Calendar: コンパクト表示＆中央寄せ ==== */
-/* PCはカード幅を絞って中央寄せ（モバイルは従来どおり横スクロール可） */
-@media (min-width: 860px) {
-  .site-calendar {
-    max-width: clamp(420px, 52vw, 560px);  /* 好みで 500〜600px 程度に */
-    margin-inline: auto;                   /* 中央寄せ */
-  }
-}
-
-/* セルの詰まりを少し強める（任意：数値はお好みで微調整） */
-.site-calendar th,
-.site-calendar td {
-  padding: .5rem; /* 例: 既存 .65rem → .5rem */
-}
-
-/* 列幅のブレを抑える（テキスト改行でも安定） */
-.site-calendar table {
-  table-layout: fixed;
 }
 
 
