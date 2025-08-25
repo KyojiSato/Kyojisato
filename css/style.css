@@ -726,14 +726,44 @@ body {
   font-size: .9rem;
 }
 
-.site-news__footer {
-  margin-top: .25rem;
+
+/* お知らせ：項目を縦フレックスにしてフッターを最下部へ */
+.site-news__item {
+  display: flex;
+  flex-direction: column;
 }
 
+/* 「詳細を見る」を下に押し下げ＋右寄せ */
+.site-news__footer {
+  margin-top: auto;     /* ← これで下揃え */
+  text-align: right;    /* 右寄せ */
+}
+
+/* 見た目の微調整（任意） */
 .site-news__more {
-  font-size: .9rem;
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: underline;
   text-underline-offset: .2em;
 }
+.site-news__more:hover { color: var(--main-color); }
+/* .site-news__footer {
+  margin-top: .25rem;
+  display: flex;
+}
+
+.site-news__footer .site-news__more {
+  margin-left: auto;
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.site-news__footer .site-news__more:hover {
+  color: var(--main-color);
+} */
 
 .site-news--narrow {
   max-width: 68ch;
@@ -825,4 +855,25 @@ body {
 .site-breadcrumb a:hover {
   border-bottom-style: solid;
 }
+
+/* ==== Calendar: コンパクト表示＆中央寄せ ==== */
+/* PCはカード幅を絞って中央寄せ（モバイルは従来どおり横スクロール可） */
+@media (min-width: 860px) {
+  .site-calendar {
+    max-width: clamp(420px, 52vw, 560px);  /* 好みで 500〜600px 程度に */
+    margin-inline: auto;                   /* 中央寄せ */
+  }
+}
+
+/* セルの詰まりを少し強める（任意：数値はお好みで微調整） */
+.site-calendar th,
+.site-calendar td {
+  padding: .5rem; /* 例: 既存 .65rem → .5rem */
+}
+
+/* 列幅のブレを抑える（テキスト改行でも安定） */
+.site-calendar table {
+  table-layout: fixed;
+}
+
 
