@@ -748,22 +748,6 @@ body {
   text-underline-offset: .2em;
 }
 .site-news__more:hover { color: var(--main-color); }
-/* .site-news__footer {
-  margin-top: .25rem;
-  display: flex;
-}
-
-.site-news__footer .site-news__more {
-  margin-left: auto;
-  color: var(--accent);
-  font-weight: 500;
-  font-size: 0.9rem;
-  text-decoration: underline;
-  text-underline-offset: .2em;
-}
-.site-news__footer .site-news__more:hover {
-  color: var(--main-color);
-} */
 
 .site-news--narrow {
   max-width: 68ch;
