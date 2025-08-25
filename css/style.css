@@ -50,20 +50,21 @@ body {
 /* ===== Header polish (共通の見た目底上げ) ===== */
 .site-header {
   position: fixed;       /* 固定しないなら 'static' に変更可 */
-  top: 0;
-  z-index: 100;
+  top: 0; left: 0; right: 0;
+  width: 100%;
+  z-index: 1000;
   background: color-mix(in oklab, #fff 80%, var(--base) 20%);
   backdrop-filter: saturate(120%) blur(6px);
   border-bottom: 1px solid var(--line);
 }
 
 .site-header__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;  /* 左ブランド / 右ナビ */
-  max-width: var(--max-w, 1200px);
+  max-width: var(--max-w);
   margin: 0 auto;
-  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
 }
 
 .site-header__brand a {
