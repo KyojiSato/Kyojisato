@@ -312,6 +312,17 @@ body {
   }
 }
 
+/* new-era5 */
+/* .site-btn--ghost {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+.site-btn--ghost:hover {
+  background: color-mix(in oklab, var(--accent) 8%, #fff);
+} */
+
+
 /* ========== News ========== */
 .site-news {
   display: grid;
@@ -785,5 +796,33 @@ body {
 /* compact padding for the small cards */
 .site-contact .site-card--pad {
   padding: var(--space-5);
+}
+
+/* ===== Breadcrumbs ===== */
+.site-breadcrumb {
+  font-size: .9rem;
+  color: var(--muted);
+  margin-block: var(--space-5);
+}
+.site-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem .5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.site-breadcrumb li+li::before {
+  content: "›";
+  opacity: .6;
+  margin-inline: .25rem;
+}
+.site-breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dashed color-mix(in oklab, var(--main-color) 30%, #fff 70%);
+}
+.site-breadcrumb a:hover {
+  border-bottom-style: solid;
 }
 
