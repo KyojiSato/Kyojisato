@@ -930,35 +930,39 @@ a:hover {
   border-bottom-style: solid;
 }
 
-.site-gallery{
-  padding: 2.5rem 1rem;
-  background:
-    radial-gradient(40px 40px at 20px 20px, rgba(0,0,0,.02), transparent 60%) var(--base);
-}
-.site-gallery h2{
-  text-align: center;
-  margin-bottom: 1.25rem;
-}
-.gallery-grid{
-  --size: 180px;
+/* 画像グリッドの共通化：メニューとギャラリーで同じ見た目に */
+.image-grid {
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(min(45%, var(--size)), 1fr) );
-  gap: .75rem;
-  max-width: min(92vw, 1100px);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 800px;
   margin: 0 auto;
+  text-align: center;
 }
-.gallery-grid img{
+.image-grid img,
+.menu-images img {
   width: 100%;
-  aspect-ratio: 1 / 1;       /* 正方形トリミング */
+  height: 300px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0,.08);
-  transition: transform .25s ease;
-}
-.gallery-grid img:hover{ transform: translateY(-2px) scale(1.01); }
-
-@media (min-width: 769px){
-  .site-gallery{ padding: 3rem 1rem; }
-  .gallery-grid{ gap: 1rem; }
+  border-radius: 8px;
+  display: block;
 }
 
+
+.image-grid figure,
+.menu-images figure {
+  margin: 0;
+}
+
+.image-grid figcaption,
+.menu-images figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.4rem;
+}
+
+/* モバイルでは1列 */
+@media (max-width: 768px) {
+  .image-grid,
+  .menu-images { grid-template-columns: 1fr; }
+}

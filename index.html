@@ -148,17 +148,16 @@
         </div>
 
         <div class="site-card site-card--pad site-calendar" id="dynamic-calendar">
-          <table aria-label="営業日カレンダー（例）"
-            <thead>
-              <tr>
-                <th>日</th>
-                <th>月</th>
-                <th>火</th>
-                <th>水</th>
-                <th>木</th>
-                <th>金</th>
-                <th>土</th>
-              </tr>
+          <table aria-label="営業日カレンダー（例）" <thead>
+            <tr>
+              <th>日</th>
+              <th>月</th>
+              <th>火</th>
+              <th>水</th>
+              <th>木</th>
+              <th>金</th>
+              <th>土</th>
+            </tr>
             </thead>
             <tbody>
               <tr>
@@ -189,6 +188,7 @@
         <span class="legend-badge legend-today">本日</span>
       </div> -->
     </div>
+
   </main>
 
   <!-- ACCESS & CONTACT 2UP -->
@@ -246,17 +246,29 @@
     </section>
   </div>
 
-  <section id="gallery" class="site-gallery" aria-label="フォトギャラリー">
-    <h2>フォトギャラリー</h2>
-    <div class="gallery-grid">
-      <img src="images/menu1_640.jpg" alt="イチジクのパン" loading="lazy" decoding="async">
-      <img src="images/menu2_640.jpg" alt="クロワッサン" loading="lazy" decoding="async">
-      <img src="images/menu3-640.jpg" alt="いろいろなパン" loading="lazy" decoding="async">
-      <img src="images/menu4_640.jpg" alt="食パンスライス" loading="lazy" decoding="async">
-      <!-- 画像を増やしたい場合はここに追加（同じ書式でOK） -->
+  <section class="content-block" id="gallery" aria-labelledby="gallery-title">
+    <h2 id="gallery-title">フォトギャラリー</h2>
+    <p>店内や人気商品の雰囲気をご覧ください。</p>
+
+    <div class="image-grid">
+      <figure>
+        <img src="images/menu1_640.jpg" alt="イチジクのパン">
+        <figcaption>イチジクのパン</figcaption>
+      </figure>
+      <figure>
+        <img src="images/menu2_640.jpg" alt="クロワッサン">
+        <figcaption>クロワッサン</figcaption>
+      </figure>
+      <figure>
+        <img src="images/menu3-640.jpg" alt="いろいろなパン">
+        <figcaption>いろいろなパン</figcaption>
+      </figure>
+      <figure>
+        <img src="images/menu4_640.jpg" alt="食パンスライス">
+        <figcaption>食パンスライス</figcaption>
+      </figure>
     </div>
   </section>
-
 
 
   <footer class="site-container site-footer">
