@@ -239,13 +239,70 @@
         <a class="site-btn site-btn--primary" href="https://docs.google.com/forms/d/e/1FAIpQLSf-demo/viewform"
           target="_blank" rel="noopener">フォームを開く</a>
       </div>
+      <!-- ここを丸ごと置き換え -->
+      <details class="site-contact__details site-card">
+        <summary class="site-contact__summary">このページ内でフォームを表示</summary>
+
+        <div class="site-contact__form">
+          <form id="contact-form" class="site-form" method="post" action="#">
+            <div class="site-form__grid">
+              <label class="site-field">
+                <span class="site-field__label">お名前 <span aria-hidden="true"
+                    class="site-field__required">＊</span></span>
+                <input class="site-input" name="name" type="text" autocomplete="name" required placeholder="例）山田 太郎">
+              </label>
+
+              <label class="site-field">
+                <span class="site-field__label">メールアドレス <span aria-hidden="true"
+                    class="site-field__required">＊</span></span>
+                <input class="site-input" name="email" type="email" autocomplete="email" required
+                  placeholder="例）taro@example.com">
+              </label>
+
+              <label class="site-field">
+                <span class="site-field__label">お電話番号（任意）</span>
+                <input class="site-input" name="tel" type="tel" inputmode="tel" placeholder="例）090-1234-5678"
+                  pattern="[0-9\-\+()\s]{8,}">
+              </label>
+
+              <label class="site-field">
+                <span class="site-field__label">お問い合わせ種別</span>
+                <select class="site-select" name="type">
+                  <option value="order">ご予約・ご注文</option>
+                  <option value="product">商品について</option>
+                  <option value="access">営業時間・アクセス</option>
+                  <option value="other" selected>その他</option>
+                </select>
+              </label>
+
+              <label class="site-field site-field--full">
+                <span class="site-field__label">お問い合わせ内容 <span aria-hidden="true"
+                    class="site-field__required">＊</span></span>
+                <textarea class="site-textarea" name="message" rows="6" required placeholder="ご用件をご記入ください。"></textarea>
+              </label>
+
+              <label class="site-check site-field--full">
+                <input class="site-check__input" type="checkbox" name="agree" required>
+                <span class="site-check__label">プライバシーポリシーに同意します</span>
+              </label>
+
+              <div class="site-form__actions site-field--full">
+                <!-- 何もしないダミー送信 -->
+                <button class="site-btn site-btn--primary" type="button" aria-disabled="true">送信（ダミー）</button>
+                <button class="site-btn" type="reset">リセット</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </details>
+
 
       <!-- Lazy contact form -->
-      <details class="site-contact__details site-card js-lazy-iframe">
+      <!-- <details class="site-contact__details site-card js-lazy-iframe">
         <summary class="site-contact__summary">このページ内でフォームを表示</summary>
         <div class="site-contact__form"
           data-src="https://docs.google.com/forms/d/e/1FAIpQLSf-demo/viewform?embedded=true"></div>
-      </details>
+      </details> -->
     </section>
   </div>
 
