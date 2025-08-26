@@ -923,6 +923,22 @@ a:hover {
   margin-inline: auto;
 }
 
+.news-actions {
+  display: flex;
+  justify-content: space-between; /* 左右に振り分け */
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.news-thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.news-link {
+  margin-left: auto; /* ボタンを右寄せ */
+}
 /* === 2UP layout & details for map/contact === */
 .site-2up {
   display: grid;
@@ -1047,7 +1063,7 @@ a:hover {
 }
 
 .site-header__burger::before {
-  content: none !important;  /* 疑似要素そのものを無効化 */
+  content: none !important;  /*疑似要素そのものを無効化*/
   border: 0 !important;
   background: none !important;
 }
