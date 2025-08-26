@@ -325,30 +325,25 @@
     </section>
   </div>
 
-  <section class="content-block" id="gallery" aria-labelledby="gallery-title">
-    <h2 id="gallery-title">フォトギャラリー</h2>
-    <p>店内や人気商品の雰囲気をご覧ください。</p>
-
-    <div class="image-grid">
-      <figure>
-        <img src="images/menu1_640.jpg" alt="イチジクのパン">
-        <figcaption>イチジクのパン</figcaption>
-      </figure>
-      <figure>
-        <img src="images/menu2_640.jpg" alt="クロワッサン">
-        <figcaption>クロワッサン</figcaption>
-      </figure>
-      <figure>
-        <img src="images/menu3-640.jpg" alt="いろいろなパン">
-        <figcaption>いろいろなパン</figcaption>
-      </figure>
-      <figure>
-        <img src="images/menu4_640.jpg" alt="食パンスライス">
-        <figcaption>食パンスライス</figcaption>
-      </figure>
+  <section id="gallery" class="site-section" aria-labelledby="gallery-title">
+    <div class="site-section__header">
+      <span class="site-section__eyebrow">GALLLERY</span>
+      <h2 id="gallery-title" class="site-section__title">フォトギャラリー</h2>
+    </div>
+    <p class="site-gallery__note">人気パンの写真を少しずつ追加していきます。</p>
+    <div class="site-section__body">
+      <ul class="site-gallery__grid">
+        <li class="site-gallery__item">
+          <a class="site-gallery__link" href="images/bread-01-1280.jpg">
+            <img class="site-gallery__media" src="images/bread-01-640.jpg" alt="日本酒だねの食パン">
+            <span class="site-gallery__cap">日本酒だねの食パン</span>
+          </a>
+        </li>
+        <!-- 以降、同様に -->
+      </ul>
     </div>
   </section>
-
+  
 
   <footer class="site-container site-footer">
     <small>© 2025 Azamino Bakery</small>
