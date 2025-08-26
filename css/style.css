@@ -99,7 +99,7 @@ body {
 
 /* スクロール時に本文が隠れないよう上部余白（固定運用時のみ） */
 .site-main { 
-  scroll-margin-top: 80px;          /* #anchorへのジャンプ補正 */
+  scroll-margin-top: 96px;          /* #anchorへのジャンプ補正 */
 }
 body:has(.site-header[position="sticky"]) .site-main { 
   /* UA未対応もあるので必要なら個別に上余白を調整 */
@@ -186,6 +186,85 @@ section {
 @media (min-width: 861px){
   .site-header__burger{ display: none; }
 }
+
+/* 　ここから */
+/* ========== Hamburger → X / mobile menu toggle (CSS only) ========== */
+
+/* チェックボックスは視覚的に隠す（アクセシブル） */
+.site-header__toggle{
+  position:absolute; inline-size:1px; block-size:1px;
+  margin:-1px; padding:0; border:0; overflow:hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space:nowrap;
+}
+
+/* ボタン */
+.site-header__burger{
+  position:relative; width:44px; height:44px;
+  display:grid; place-items:center; cursor:pointer;
+  color: var(--main-color, #6b5b4b);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 3本線 */
+.site-header__burger span{
+  position:absolute; left:50%; width:26px; height:2px;
+  background: currentColor; border-radius:2px;
+  transform: translateX(-50%);
+  transition: transform .25s ease, opacity .2s ease, top .25s ease;
+}
+.site-header__burger span:nth-child(1){ top:14px; }
+.site-header__burger span:nth-child(2){ top:50%; transform: translate(-50%, -50%); }
+.site-header__burger span:nth-child(3){ top: calc(100% - 14px); }
+
+/* チェック時：Xに変形 */
+.site-header__toggle:checked + .site-header__burger span:nth-child(1){
+  top:50%; transform: translate(-50%, -50%) rotate(45deg);
+}
+.site-header__toggle:checked + .site-header__burger span:nth-child(2){
+  opacity:0;
+}
+.site-header__toggle:checked + .site-header__burger span:nth-child(3){
+  top:50%; transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* モバイル：メニュー本体（閉） */
+.site-header{ position:relative; z-index:10; }
+.site-header__nav{
+  position:absolute; inset:100% 0 auto 0; /* ヘッダー直下に展開 */
+  background: var(--main-bg, #FEFBF5);
+  border-top: 1px solid var(--line, #e5e5e5);
+  display:grid; gap:.5rem;
+  padding: .75rem clamp(.75rem, 2vw, 1rem);
+  transform-origin: top; transform: scaleY(0);
+  opacity:0; pointer-events:none; overflow:hidden;
+  transition: transform .2s ease, opacity .2s ease;
+}
+/* 開 */
+.site-header__toggle:checked ~ .site-header__nav{
+  transform: scaleY(1);
+  opacity:1; pointer-events:auto;
+}
+
+/* PC：従来どおり横並び＆ハンバーガー非表示 */
+@media (min-width:1024px){
+  .site-header__burger{ display:none; }
+  .site-header__nav{
+    position:static; transform:none; opacity:1; pointer-events:auto;
+    display:flex; gap:.5rem; padding:0; border:0; background:transparent;
+  }
+}
+
+/* ユーザーが動きを減らす設定ならアニメ無効 */
+@media (prefers-reduced-motion: reduce){
+  .site-header__burger span,
+  .site-header__nav{ transition:none; }
+}
+
+
+/*-----------------------------------------------------*/
+
+
+
 
 
 /* カードの本文余白をやや広げて詰まり感を軽減 */
