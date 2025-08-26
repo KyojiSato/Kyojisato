@@ -1185,3 +1185,25 @@ a:hover {
 @media (prefers-reduced-motion: reduce){
   .site-contact__summary, .site-input, .site-select, .site-textarea { transition:none; }
 }
+
+#back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent, #B07A3F);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: none; /* 最初は非表示 */
+  transition: opacity 0.3s ease;
+}
+
+#back-to-top.show {
+  display: block;
+  opacity: 1;
+}
