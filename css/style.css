@@ -113,9 +113,9 @@ body:has(.site-header[position="sticky"]) .site-main {
     justify-content: center;
     width: 40px; height: 40px;
     cursor: pointer;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: #fff;
+    /* border: 1px solid var(--line); */
+    /* border-radius: 999px;
+    background: #fff; */
   }
   .site-header__burger span {
     display: block;
@@ -1046,3 +1046,126 @@ a:hover {
   .menu-images { grid-template-columns: 1fr; }
 }
 
+.site-header__burger::before {
+  content: none !important;  /* 疑似要素そのものを無効化 */
+  border: 0 !important;
+  background: none !important;
+}
+
+/* =========================
+   Contact / Form styling
+   ========================= */
+
+/* 詳細ブロック（Googleフォーム置き換え用） */
+.site-contact__details { display:block; margin-top: clamp(12px, 2vw, 16px); }
+.site-contact__details[open] .site-contact__form { margin-top: .75rem; }
+
+/* Summary をボタン風に（矢印付き） */
+.site-contact__summary {
+  display:flex; align-items:center; justify-content:space-between;
+  gap:.75rem;
+  padding: .75rem 1rem;
+  background: #fff;
+  border: 1px solid var(--line, #e5e5e5);
+  border-radius: var(--radius, 12px);
+  box-shadow: var(--shadow, 0 8px 24px rgba(0,0,0,.06));
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.site-contact__summary::-webkit-details-marker { display:none; }
+.site-contact__summary::after {
+  content: "";
+  inline-size: .55rem; block-size: .55rem;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg); transition: transform .2s ease;
+  opacity: .7;
+}
+.site-contact__details[open] > .site-contact__summary::after { transform: rotate(45deg); }
+
+/* ========== Form Card ========== */
+.site-form {
+  background: #fff;
+  border: 1px solid var(--line, #e5e5e5);
+  border-radius: var(--radius, 12px);
+  box-shadow: var(--shadow, 0 8px 24px rgba(0,0,0,.06));
+  padding: clamp(1rem, 2.2vw, 1.75rem);
+}
+
+.site-form__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem 1.25rem;
+}
+@media (min-width: 768px) {
+  .site-form__grid { grid-template-columns: 1fr 1fr; }
+}
+.site-field--full { grid-column: 1 / -1; }
+
+.site-field { display: grid; gap: .45rem; }
+.site-field__label { font-size: .95rem; color: var(--muted, #666); }
+.site-field__required { color: var(--accent, #B07A3F); }
+
+/* Inputs */
+.site-input,
+.site-select,
+.site-textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--main-color, #333);
+  background: #fff;
+  border: 1px solid var(--line, #e5e5e5);
+  border-radius: 10px;
+  padding: .7rem .9rem;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+.site-textarea { min-height: 8rem; resize: vertical; }
+
+.site-input::placeholder,
+.site-textarea::placeholder { color: color-mix(in oklab, var(--main-color, #333) 45%, #fff 55%); }
+
+.site-input:focus,
+.site-select:focus,
+.site-textarea:focus {
+  border-color: color-mix(in oklab, var(--accent, #B07A3F) 60%, #fff 40%);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent, #B07A3F) 20%, transparent);
+}
+
+/* Invalid / Disabled */
+.site-input:invalid,
+.site-select:invalid,
+.site-textarea:invalid {
+  border-color: color-mix(in oklab, #D64545 70%, #fff 30%);
+}
+.site-input:disabled,
+.site-select:disabled,
+.site-textarea:disabled {
+  background: #f7f7f7; color: #999;
+}
+
+/* Checkbox row */
+.site-check { display:flex; align-items:center; gap:.6rem; }
+.site-check__input { inline-size: 1.1rem; block-size: 1.1rem; accent-color: var(--accent, #B07A3F); }
+
+/* Actions / Status */
+.site-form__actions {
+  display:flex; flex-wrap:wrap; gap:.75rem; align-items:center;
+}
+.site-form__status {
+  margin-top:.5rem; font-size:.95rem; color: var(--muted, #666);
+}
+.site-form__status.is-success { color: #1a7f37; }
+.site-form__status.is-error   { color: #b42318; }
+
+/* ボタン（既存 .site-btn を補助） */
+.site-btn--primary { background: var(--accent, #B07A3F); color:#fff; }
+.site-btn--primary:hover { filter: brightness(1.05); }
+
+/* 細かな余白調整（アクセサリ） */
+.site-contact__form { display:block; }
+
+/* アニメ最小化対応 */
+@media (prefers-reduced-motion: reduce){
+  .site-contact__summary, .site-input, .site-select, .site-textarea { transition:none; }
+}
