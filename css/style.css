@@ -1110,7 +1110,7 @@ a:hover {
 .site-input,
 .site-select,
 .site-textarea {
-  width: 100%;
+  width: calc(100% - 20px);
   font: inherit;
   color: var(--main-color, #333);
   background: #fff;
