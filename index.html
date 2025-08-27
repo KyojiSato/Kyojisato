@@ -4,8 +4,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Azamino Bakery – Unified Section System</title>
+  <title>あざみ野ベーカリー | 天然酵母のパンと食パン専門店</title>
+  <meta name="description" content="田園都市線あざみ野駅近くの天然酵母パン屋。日本酒だねの食パンやクロワッサンが人気">
+  <meta name="keywords" content="あざみ野,パン屋,ベーカリー,日本酒だね,天然酵母,食パン,クロワッサン,カレーパン,横浜市青葉区">
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="images/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <meta property="og:image" content="https://kyojisato.github.io/azamino-bakery/images/ogp.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- ▼ 構造化データ (LocalBusiness) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "あざみ野ベーカリー",
+    "image": "https://kyojisato.github.io/azamino-bakery/images/logo-612x612.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "横浜市青葉区",
+      "addressRegion": "神奈川県",
+      "postalCode": "225-0011",
+      "streetAddress": "あざみ野（仮）"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 35.571,
+      "longitude": 139.551
+    },
+    "url": "https://kyojisato.github.io/azamino-bakery/",
+    "telephone": "+81-45-000-0000",
+    "priceRange": "¥¥"
+  }
+  </script>
+
 </head>
 
 <body>
@@ -256,8 +290,8 @@
       <div class="site-card site-card--pad">
         <p class="site-meta">電話：<a href="tel:045-xxxx-xxxx">045-xxxx-xxxx</a>（9:00–18:00） /
           メール：<a href="mailto:info@example.com">info@example.com</a></p>
-        <a class="site-btn site-btn--primary" href="https://docs.google.com/forms/d/e/1FAIpQLSf-demo/viewform"
-          target="_blank" rel="noopener">フォームを開く</a>
+        <!-- <a class="site-btn site-btn--primary" href="https://docs.google.com/forms/d/e/1FAIpQLSf-demo/viewform" -->
+        <a class="site-btn site-btn--primary" href=".site-contact__form" target="_blank" rel="noopener">フォームを開く</a>
       </div>
       <!-- ここを丸ごと置き換え -->
       <details class="site-contact__details site-card">
@@ -342,39 +376,51 @@
         </li>
         <li class="site-gallery__item">
           <a class="site-gallery__link" href=" #">
-            <img class="site-gallery__media" src="images/pan001.jpg" alt="日本酒だねの食パン">
+            <img class="site-gallery__media" src="images/pan001.jpg" alt="パンの写真">
             <span class="site-gallery__cap">おいしいパン</span>
           </a>
         </li>
         <li class="site-gallery__item">
           <a class="site-gallery__link" href="images/menu3-640.jpg" target="_blank">
-            <img class="site-gallery__media" src="images/pan003.jpg" alt="日本酒だねの食パン">
+            <img class="site-gallery__media" src="images/pan003.jpg" alt="パンの写真">
             <span class="site-gallery__cap">おいしいパン</span>
           </a>
         </li>
         <li class="site-gallery__item">
           <a class="site-gallery__link" href="#">
-            <img class="site-gallery__media" src="images/shokupan3.jpg" alt="日本酒だねの食パン">
+            <img class="site-gallery__media" src="images/shokupan3.jpg" alt="パンの写真">
             <span class="site-gallery__cap">トースタと食パン </span>
           </a>
         </li>
         <!-- 以降、同様に -->
         <li class="site-gallery__item">
           <a class="site-gallery__link" href="#">
-            <img class="site-gallery__media" src="images/pankone.webp" alt="日本酒だねの食パン">
+            <img class="site-gallery__media" src="images/pankone.webp" alt="パンの写真">
             <span class="site-gallery__cap">こねています</span>
           </a>
         </li>
         <li class="site-gallery__item">
           <a class="site-gallery__link" href="#">
-            <img class="site-gallery__media" src="images/pan002.jpg" alt="日本酒だねの食パン">
+            <img class="site-gallery__media" src="images/pan002.jpg" alt="パンの写真">
+            <span class="site-gallery__cap">おいしいパン </span>
+          </a>
+        </li>
+        <li class="site-gallery__item">
+          <a class="site-gallery__link" href="#">
+            <img class="site-gallery__media" src="images/karrypan.jpg" alt="パンの写真">
+            <span class="site-gallery__cap">おいしいパン </span>
+          </a>
+        </li>
+        <li class="site-gallery__item">
+          <a class="site-gallery__link" href="#">
+            <img class="site-gallery__media" src="images/edamame.jpg" alt="パンの写真">
             <span class="site-gallery__cap">おいしいパン </span>
           </a>
         </li>
       </ul>
     </div>
   </section>
-  
+
 
   <footer class="site-container site-footer">
     <small>© 2025 Azamino Bakery <br> https://kyojisato.github.io/azamino-bakery </small>
