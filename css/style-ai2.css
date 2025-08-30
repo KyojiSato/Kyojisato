@@ -1,0 +1,243 @@
+/*=====================================================================
+  Azamino Bakery – Zero-base CSS
+  Philosophy: Tokens / Mobile-first / Component-driven / Natural & clean
+  Prefix: site- (existing HTMLに合わせる)
+=====================================================================*/
+
+/*-----------------------------
+  0) Reset (modern, minimal)
+------------------------------*/
+*,*::before,*::after{box-sizing:border-box}
+html:focus-within{scroll-behavior:smooth}
+html,body{height:100%}
+body{margin:0;font-family:system-ui,-apple-system,"Noto Sans JP",Segoe UI,Roboto,Helvetica,Arial,"Hiragino Kaku Gothic ProN","Yu Gothic UI","Yu Gothic",Meiryo,Apple Color Emoji,Segoe UI Emoji;line-height:1.7;text-rendering:optimizeLegibility}
+img,svg,video,canvas{max-width:100%;height:auto;display:block}
+input,button,textarea,select{font:inherit}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid color-mix(in oklab, var(--accent) 60%, #000 40%);outline-offset:2px}
+
+/*-----------------------------
+  1) Design Tokens
+------------------------------*/
+:root{
+  /* Colors (Natural & a bit brighter) */
+  --bg: #FEFBF5;
+  --text: #4E463D;
+  --muted: color-mix(in oklab, var(--text) 55%, #fff 45%);
+  --line: color-mix(in oklab, var(--text) 18%, #fff 82%);
+
+  --accent: #B07A3F;     /* キャメルブラウン */
+  --highlight: #9FB38A;  /* オリーブ寄りのグリーン */
+  --base: #F3E7D7;       /* ベージュ */
+
+  /* Layout */
+  --max-w: 1200px;
+  --container-w: min(92vw, var(--max-w));
+  --radius: 14px;
+  --shadow: 0 8px 24px rgba(0,0,0,.06);
+
+  /* Spacing scale */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Typography */
+  --fs-1: clamp(.875rem, .82rem + .2vw, .95rem);
+  --fs-2: clamp(1rem, .94rem + .3vw, 1.125rem);
+  --fs-3: clamp(1.25rem, 1.1rem + .6vw, 1.5rem);
+  --fs-4: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  --fs-5: clamp(2rem, 1.6rem + 1.6vw, 2.6rem);
+}
+
+/* Prefer dark (optional base) */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg: #1E1B17;
+    --text: #EFE9E0;
+    --muted: color-mix(in oklab, var(--text) 35%, #000 65%);
+    --line: color-mix(in oklab, var(--text) 25%, #000 75%);
+    --base: #2A241F;
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+  }
+}
+
+/*-----------------------------
+  2) Base Elements
+------------------------------*/
+body{background:var(--bg);color:var(--text);font-size:var(--fs-2)}
+.site-container{width:var(--container-w);margin-inline:auto}
+.site-eyebrow{letter-spacing:.08em;font-size:.85em;color:var(--muted)}
+
+h1,h2,h3{line-height:1.25;margin:0 0 var(--space-3) 0}
+h1{font-size:var(--fs-5)}
+h2{font-size:var(--fs-4)}
+h3{font-size:var(--fs-3)}
+p{margin:0 0 var(--space-4) 0}
+
+/*-----------------------------
+  3) Header / Nav (CSS-only burger)
+------------------------------*/
+.site-header{position:sticky;top:0;z-index:40;background:color-mix(in oklab,#fff 85%, var(--base) 15%);border-bottom:1px solid var(--line);backdrop-filter:saturate(1.1) blur(6px)}
+.site-header__inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding:var(--space-3) 1rem;max-width:var(--max-w);margin-inline:auto}
+.site-header__brand{font-size:1.15rem;letter-spacing:.04em}
+/* burger */
+.site-header__toggle{display:none}
+.site-header__burger{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--line);border-radius:999px;cursor:pointer}
+.site-header__burger span{display:block;width:18px;height:2px;background:var(--text);border-radius:2px;transition:.25s;transform-origin:center}
+.site-header__burger span+span{margin-top:4px}
+/* morph to X */
+.site-header__toggle:checked + .site-header__burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.site-header__toggle:checked + .site-header__burger span:nth-child(2){opacity:0}
+.site-header__toggle:checked + .site-header__burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* nav */
+.site-header__nav{position:fixed;inset:auto 0 0 0;transform:translateY(100%);transition:transform .28s ease;display:grid;gap:.25rem;padding:var(--space-4);background:color-mix(in oklab,#fff 92%, var(--base) 8%);border-top:1px solid var(--line)}
+.site-header__toggle:checked ~ .site-header__nav{transform:translateY(0)}
+@media (min-width: 768px){
+  .site-header__burger{display:none}
+  .site-header__nav{position:static;transform:none;display:flex;gap:.5rem;padding:0;background:transparent;border:0}
+}
+
+/* nav links as buttons */
+.site-btn{display:inline-block;padding:.55rem .9rem;border-radius:999px;border:1px solid var(--line);background:linear-gradient(#fff, #fff) padding-box,linear-gradient(180deg,transparent,rgba(0,0,0,.06)) border-box;box-shadow:var(--shadow);font-size:.95rem}
+.site-btn:hover{translate:0 -1px}
+.site-btn:active{translate:0}
+.site-btn--primary{background:var(--accent);border-color:transparent;color:#fff}
+
+/*-----------------------------
+  4) Hero
+------------------------------*/
+.site-hero{position:relative;isolation:isolate;background:var(--base)}
+.site-hero__inner{width:var(--container-w);margin-inline:auto;padding:var(--space-7) 1rem var(--space-6)}
+.site-hero__title{font-size:var(--fs-5);margin-bottom:var(--space-3)}
+.site-hero__lead{max-width:60ch;color:var(--muted)}
+.site-hero__image{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin-top:var(--space-5)}
+.site-hero__image img{width:100%;height:auto;display:block;object-fit:cover}
+@media (min-width: 1024px){
+  .site-hero__inner{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:var(--space-6);padding:var(--space-8) 1rem}
+  .site-hero__image{margin-top:0}
+}
+
+/*-----------------------------
+  5) Sections
+------------------------------*/
+.site-section{padding:var(--space-7) 0;border-top:1px solid var(--line)}
+.site-section__header{margin-bottom:var(--space-5)}
+.site-section__title{display:flex;align-items:center;gap:.6rem}
+.site-section__title::after{content:"";flex:1;height:1px;background:var(--line)}
+.site-section__lead{color:var(--muted)}
+
+/* unified cards */
+.site-card{background:linear-gradient(#fff,#fff);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.site-card__body{padding:var(--space-4);}
+
+/*-----------------------------
+  6) Menu Grid (商品カード＋価格＋詳しく見る)
+------------------------------*/
+.menu-grid{display:grid;grid-template-columns:1fr;gap:var(--space-4)}
+@media (min-width:640px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.menu-grid{grid-template-columns:repeat(3,1fr)}}
+
+.menu-item{display:grid;grid-template-rows:auto 1fr auto}
+.menu-item__thumb{aspect-ratio:4/3;overflow:hidden}
+.menu-item__thumb img{width:100%;height:100%;object-fit:cover;transition:scale .35s ease}
+.menu-item:hover .menu-item__thumb img{scale:1.05}
+.menu-item__body{padding:var(--space-4)}
+.menu-item__title{font-weight:700;margin-bottom:.25rem}
+.menu-item__desc{color:var(--muted);margin-bottom:var(--space-3)}
+.menu-item__meta{display:flex;align-items:end;justify-content:space-between;padding:var(--space-3) var(--space-4);border-top:1px solid var(--line);gap:var(--space-3)}
+.menu-item__price{font-weight:700;font-size:1.05rem}
+.menu-item__more{margin-left:auto} /* 右寄せボタン */
+.menu-item__more .site-btn{padding:.5rem .9rem}
+
+/*-----------------------------
+  7) News List（左サムネ＋本文）
+------------------------------*/
+.news-list{display:grid;gap:var(--space-3)}
+.news{display:grid;grid-template-columns:80px 1fr;gap:var(--space-3);align-items:start;padding:var(--space-3);border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+.news__thumb{width:80px;height:80px;overflow:hidden;border-radius:10px}
+.news__thumb img{width:100%;height:100%;object-fit:cover}
+.news__meta{font-size:.85em;color:var(--muted)}
+@media (min-width:768px){.news{grid-template-columns:120px 1fr}.news__thumb{width:120px;height:90px}}
+
+/*-----------------------------
+  8) Calendar（静的テーブルの見た目・将来動的対応）
+------------------------------*/
+.calendar{border-collapse:separate;border-spacing:0;width:100%;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.calendar th,.calendar td{padding:.65rem .5rem;border-bottom:1px solid var(--line);text-align:center}
+.calendar thead th{background:color-mix(in oklab,#fff 85%, var(--highlight) 15%);font-weight:700}
+.calendar tr:last-child td{border-bottom:0}
+.calendar td.is-closed{color:#999;text-decoration:line-through}
+.calendar td.is-today{background:color-mix(in oklab,#fff 70%, var(--accent) 30%);color:#000;font-weight:700}
+
+/*-----------------------------
+  9) Access（マップ／住所）
+------------------------------*/
+.access{display:grid;gap:var(--space-4)}
+@media (min-width: 900px){.access{grid-template-columns:1.2fr .8fr;align-items:start}}
+.access__map iframe,.access__map img{width:100%;border:0;aspect-ratio:4/3;border-radius:var(--radius);box-shadow:var(--shadow)}
+
+/*-----------------------------
+  10) Contact（フォーム）
+------------------------------*/
+.site-form{display:grid;gap:var(--space-3);max-width:720px}
+.site-form label{font-weight:600}
+.site-form input[type="text"],
+.site-form input[type="email"],
+.site-form input[type="tel"],
+.site-form textarea,
+.site-form select{
+  width:100%;
+  padding:.7rem .9rem;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#fff;
+}
+.site-form textarea{min-height:9rem;resize:vertical}
+/* 入力幅を少しずつ狭めたい要望に合わせ、微調整ユーティリティ */
+.input-narrow{max-width:calc(100% - 10px)} /* 10px狭く */
+.input-narrow-20{max-width:calc(100% - 20px)}
+.site-form .actions{display:flex;gap:.6rem;flex-wrap:wrap}
+.site-form .actions .site-btn{padding:.7rem 1.1rem}
+
+/*-----------------------------
+  11) Footer
+------------------------------*/
+.site-footer{margin-top:var(--space-7);padding:var(--space-6) 1rem;border-top:1px solid var(--line);background:linear-gradient(#fff,#fff)}
+.site-footer__inner{width:var(--container-w);margin-inline:auto;display:grid;gap:var(--space-3)}
+.site-footer small{color:var(--muted)}
+
+/*-----------------------------
+  12) Utilities
+------------------------------*/
+.stack-2 > * + *{margin-top:var(--space-2)}
+.stack-3 > * + *{margin-top:var(--space-3)}
+.stack-4 > * + *{margin-top:var(--space-4)}
+.center{text-align:center}
+.mt-0{margin-top:0}.mb-0{margin-bottom:0}
+.mt-4{margin-top:var(--space-4)}.mb-4{margin-bottom:var(--space-4)}
+.p-4{padding:var(--space-4)}
+.hide{display:none!important}
+
+.back-to-top{position:fixed;right:1rem;bottom:1rem;z-index:50}
+.back-to-top .site-btn{box-shadow:0 6px 18px rgba(0,0,0,.12)}
+
+/*-----------------------------
+  13) Media Queries – fine tuning
+------------------------------*/
+@media (min-width: 1200px){
+  .site-header__inner{padding:var(--space-3) 0}
+  .site-hero__inner{padding-left:0;padding-right:0}
+}
+
+/*-----------------------------
+  14) Optional: Color accents per section
+------------------------------*/
+#menu .site-section__title{color:var(--accent)}
+#news .site-section__title{color:var(--highlight)}
+#calendar .site-section__title{color:color-mix(in oklab,var(--text) 70%, var(--highlight) 30%)}
